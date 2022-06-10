@@ -1,0 +1,32 @@
+// use monte carlo integartion to estimate the area 
+// under y = x^2 fromm 2 to 7, expecting answer around 2
+function setup() {
+  createCanvas(400, 400);
+  let TRIALS = 10000
+  let underCount = 0;
+  for (let i = 0; i < TRIALS; i++) {
+    underCount += throwDart() ? 1 : 0;
+  }
+  
+  console.log("under", underCount)
+  console.log("Area", underCount * (8*70) / TRIALS)
+}
+
+function throwDart() {
+  strokeWeight(4)
+  let x = random(0, 8)
+  let y = random(0, 70)
+  
+  //is (x,y) under the function y = x^2 between x = 2 and x = 7
+  let underCurve = ((x ** 2 > y) && (x >= 2) && (x <= 7)) ;
+  if (underCurve) {
+    stroke(0, 255, 0)
+  } else {
+    stroke(255, 0, 0)
+  }
+  
+  let xPixel = map(x, 0, 8, 0, width)
+  let yPixel = map(y, -1, 70, height, 0)
+  point(xPixel, yPixel)
+  return (underCurve);
+}

@@ -1,0 +1,30 @@
+let s = 5;
+
+function setup() {
+  createCanvas(400, 400);
+  background(0);
+  noStroke();
+  fill(255, 255, 0);
+  cantor(10, 390, s);
+  button = createButton('next stage');
+  button.position(0, 0);
+  button.mousePressed(nextStage);
+}
+
+function nextStage() {
+  s++;
+  background(0);
+  cantor(10, 390, s);
+  console.log(s, (2/3) ** s);
+}
+
+function cantor(xStart, xEnd, stage) {
+  // recursive calls
+  let dx = xEnd - xStart
+  if (stage > 0) {
+    cantor(xStart, xStart + dx / 3,stage - 1);
+    cantor(xStart + dx * 2 / 3, xEnd, stage - 1);
+  } else {
+    rect(xStart, height/2, dx, 10);
+  }
+}

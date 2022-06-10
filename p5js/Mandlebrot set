@@ -1,0 +1,84 @@
+// The mandelbrot set considers every possible complex number C and asks: does the seed 0
+// escape the function f(x) = x ** 2 + C where x and C are complex numbers
+const BAILOUT = 50;
+const ESCAPE_RADIUS = 2;
+let C;
+
+function setup() {
+  createCanvas(400, 400);
+//   let c1 = new Complex(3, 4);
+//   let c2 = new Complex(2, 5);
+//   let c3 = c1.mult(c2);
+  
+//   console.log(c1.abs());
+  C = new Complex(0.5, 1);
+  let seed = new Complex(0, 0);
+  
+  //console.log(escapes(seed));
+  drawMandelbrotSet();
+}
+
+function drawMandelbrotSet() {
+  let seed = new Complex(0,0)
+  //loop through each pixel mapping it to an appropriate complex number
+  for (let x = 0; x < width; x++) {
+    for (let y = 0; y < height; y++) {
+      let real = map(x, 0, width, -2, 2);
+      let imag = map(y, 0, height, -2, 2);
+      C = new Complex(real, imag);
+      
+      //color pixel red or green
+      if (escapes(seed)) {
+        set(x, y, color(255, 0, 0)); // red escapes
+      } else {
+        set(x, y, color(0, 255, 0)); // green stays
+      }
+    }
+  }
+  updatePixels();
+}
+
+function mousePressed() {
+  let real = map(mouseX, 0, width, -2, 2);
+  let imag = map(mouseY, 0, height, -2, 2);
+  console.log(real, imag);
+}
+
+function escapes(x)
+ {
+   let steps = 0;
+   while (x.abs() < ESCAPE_RADIUS && steps < BAILOUT) {
+     x = f(x);
+     steps++;
+   }
+   return x.abs() > ESCAPE_RADIUS
+ }
+
+// function 
+function f(x) {
+  return x.mult(x).add(C);
+}
+
+class Complex {
+  constructor(a, b) {
+    this.a = a;
+    this.b = b;
+  }
+  
+  // returns a new complex number that is the sum of this complex number and another
+  add(other) {
+    return new Complex(this.a + other.a, this.b + other.b);
+  }
+  
+  // returns a new complex number that is the product of this complex number and another
+  mult(other) {
+    let real = (this.a * other.a) - (other.b * this.b);
+    let imag = (this.a * other.b) + (other.a * this.b);
+    return new Complex(real, imag);
+  }
+  
+  // returns the distance of a complex number from 0, 0
+  abs() {
+    return dist(0, 0, this.a, this.b);
+  }
+}

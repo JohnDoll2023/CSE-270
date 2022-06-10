@@ -1,0 +1,24 @@
+function setup() {
+  const TRIALS = 106;
+  let successes = 0;
+  
+  for (let trial = 0; trial < TRIALS; trial++) {
+    // BEGIN 1 TRIAL
+
+    // flip a fair coin 10 times and count heads
+    let headCount = 0;
+    
+    for (let flip = 0; flip < 6; flip++) {
+      if (random(1) < 0.5) {
+        headCount++;
+      }
+    }
+    
+    // END 1 TRIAL
+    if (headCount == 3) {
+      successes++;
+    }
+  }
+  
+  console.log(successes/TRIALS);
+}

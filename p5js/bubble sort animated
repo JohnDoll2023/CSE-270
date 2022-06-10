@@ -1,0 +1,61 @@
+// Here is some starter code for creating an
+// animated version of the bubble sort algorithm.
+let ar;
+
+// Instead of nested loops being used to
+// manage the algorithm, we will use the
+// automatic looping of the draw() functions to help
+// us. So, we take the index variables of
+// the nested loops, make them global variables
+// instead, and manually control those variables
+// with "if statements" within the draw() function.
+
+let i = 0;
+let passes = 0;
+let compares = 0;
+
+function setup() {
+  createCanvas(500, 500);
+
+  ar = [];
+  for (let i = 5; i <= 50; i += 5) {
+    ar.push(i);
+  }
+  frameRate(25);
+
+  ar = shuffle(ar);
+  //reverse(ar);
+  console.log(ar);
+}
+
+// loop that happens automatically
+function draw() {
+  background(0);
+  drawData(color(255));
+
+  // highlight the two circles being compared
+  // by drawing them green
+  fill(0, 255, 0);
+  compares++;
+  circle(25 + i * 50, height / 2, ar[i]);
+  circle(25 + (i + 1) * 50, height / 2, ar[i + 1]);
+
+  i++;
+  
+  if (i === ar.length - 1 - passes) {
+    i = 0;
+    passes++;
+    if (passes === ar.length - 1) {
+      noLoop();
+      drawData(color(0, 0, 255));
+      print("compares: ", compares);
+    }
+  }
+}
+
+function drawData(c) {
+  fill(c);
+  for (let i = 0; i < ar.length; i++) {
+    circle(25 + i * 50, height / 2, ar[i]);
+  }
+}

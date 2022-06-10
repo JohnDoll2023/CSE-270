@@ -1,0 +1,102 @@
+let shapes = []
+
+function setup() {
+  createCanvas(400, 400);
+  
+  // new p5js feature, blends pixels according to selected mode
+  blendMode(SOFT_LIGHT);
+  
+  for (let i = 0; i < 10; i++) {
+    // pick random colors and opacity
+    col1 = random(255);
+    col2 = random(255);
+    col3 = random(255);
+    opacity = random(255);
+    
+    // also chooses random coordinates
+    shapes[i] = new Shape(random(400), random(400), random(30), color(col1, col2, col3, opacity), color(255 - col1, 255 - col2, 255 - col3, 255-opacity), 10);
+  }
+  
+}
+
+// show shapes function
+function showShapes() {
+  for (let i = 0; i < 10; i++) {
+    shapes[i].show();
+  }
+}
+
+// update shapes function
+function updateShapes() {
+  for (let i = 0; i < 10; i++) {
+    // change colors
+    col1 = random(255)
+    col2 = random(255)
+    col3 = random(255)
+    
+    // change opacity
+    opacityChange = shapes[i].opacity * noise(random(400));
+    
+    // set stroke and fills
+    strokeColAdj = color(col1, col2, col3, opacity);
+    fillColAdj = color(255 - col1, 255 - col2, 255 - col3, 255 - opacity);
+    
+    // use of random and noise to determine movement of circles
+    coordX = noise(random(400));
+    coordY = random(1) < 0.5 ? 3 * noise(random(400)) : 3 * -noise(random(400));
+    
+    // if coordinates are off the edge of the screen, then set them in a new random location on
+    // the canvas
+    if (shapes[i].xCord < 0 || shapes[i].xCord > 400 || shapes[i].yCord < 0 || shapes[i].yCord > 400) {
+      shapes[i].xCord = random(400);
+      shapes[i].yCord = random(400);
+    }
+    
+    // determine stroke weight
+    weightAdd = 0;
+    if (shapes[i].weight >= 10) {
+      weightAdd = random(1) < 0.75 ? -noise(1) : noise(1);
+    } else {
+      weightAdd = random(1) < 0.75 ? noise(1) : -noise(1);
+    }
+    
+    // change radius
+    radius = random(1) < 0.5 ? noise(random(400)) : -noise(random(400));
+    shapes[i].update(strokeColAdj, fillColAdj, shapes[i].radius + radius, shapes[i].xCord + coordX, shapes[i].yCord + coordY, shapes[i].weight + weightAdd, opacity);
+  }
+}
+
+function draw() {
+  showShapes();
+  updateShapes();
+}
+
+// shape class
+class Shape {
+  constructor(xCord, yCord, radius, strokeCol, fillCol, weight) {
+    this.xCord = xCord;
+    this.yCord = yCord;
+    this.radius = radius;
+    this.strokeCol = strokeCol;
+    this.fillCol = fillCol;
+    this.weight = weight;
+  }
+  
+  // draw new circle
+  show() {
+    stroke(this.strokeCol)
+    strokeWeight(this.weight);
+    fill(this.fillCol)
+    circle(this.xCord, this.yCord, this.radius)
+  }
+  
+  // update circle attributes
+  update(strokeColAdj, fillColAdj, radius, xCord, yCord, weight) {
+    this.radius = radius;
+    this.strokeCol = strokeColAdj;
+    this.fillCol = fillColAdj;
+    this.xCord = xCord;
+    this.yCord = yCord;
+    this.weight = weight;
+  }
+}

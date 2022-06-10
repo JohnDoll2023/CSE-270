@@ -1,0 +1,162 @@
+function setup() {
+  createCanvas(600, 600);
+  translate(width / 2, height);
+  background(0);
+  stroke(255);
+  strokeWeight(2);
+
+  let t = new Turtle();
+
+  // Koch's curve
+  // let lsys = new LSystem("F", 90);
+  // lsys.addRule("F", "FfF");
+  // lsys.addRule("f", "fff");
+  
+  //Dragon curve
+  // let lsys = new LSystem("F", 90);
+  // lsys.addRule("X", "F+G")
+  // lsys.addRule("G", "F-G")
+  
+  // fractal plant
+  let lsys = new LSystem("F++F++F++F++F", 36);
+  lsys.addRule("F", "F++F++F+++++F-F++F")
+  //lsys.addRule("F", "FF")
+  
+  for (let s = 0; s < 7; s++) {
+    lsys.nextStage();
+  }
+
+  // Now, feed the lsystem to my turtle for drawing
+  lsys.showText(); // show the text for the current stage
+  
+  t.drawLsystem(lsys, 2)
+}
+
+class LSystem {
+  constructor(axiom, angle) {
+    this.axiom = axiom; // never change
+    this.text = axiom; // changes at each stage
+    this.angle = angle;
+    this.stage = 0;
+    this.rules = [];
+  }
+
+  // Specify what a letter should be replaced
+  // with.
+  addRule(letter, repl) {
+    this.rules.push([letter, repl]);
+  }
+
+  // Goes through the text and replaces
+  // characters based on rules.
+  // If no rule is found for a character
+  // then just add that character to the new string.
+  nextStage() {
+    let result = "";
+
+    // loop through each character in the current string
+    for (let c of this.text) {
+      let found = false;
+
+      // loop through the rules to see if
+      // one matches
+      for (let r of this.rules) {
+        if (c == r[0]) {
+          result += r[1];
+          found = true;
+          break; // only one rule could match
+        }
+      }
+
+      if (!found) {
+        result += c;
+      }
+    }
+
+    this.text = result;
+    this.stage++;
+  }
+
+  // displays this text
+  showText() {
+    console.log(this.text);
+  }
+}
+
+class Turtle {
+  constructor() {
+    this.penDown = true;
+  }
+
+  // We will need a method that takes an l-system as
+  // a parameter and just draws whatever the string is in it.
+  drawLsystem(lsys, dist, alsoF="") {
+    // lsys.txt and lsys.angle are what the turtle needs
+    // it might be useful to use lsys.stage to help figure out how to scale the drawing
+    for (let c of lsys.text) {
+      c = alsoF.includes(c) ? "F" : c;
+      switch(c) {
+        case "F":
+          this.fd(dist)
+          break;
+        case "f":
+          this.pu();
+          this.fd(dist)
+          this.pd()
+          break;
+        case "+":
+          this.rt(lsys.angle);
+          break;
+        case "-":
+          this.lt(lsys.angle);
+          break;
+        case "[":
+          push(); //save location of turtle
+          break;
+        case "]":
+          pop();
+          break;
+        case "*":
+          stroke(0, random(255), 0);
+          break;
+      }
+      
+    }
+  }
+
+  pu() {
+    this.penDown = false;
+  }
+
+  pd() {
+    this.penDown = true;
+  }
+
+  fd(dist) {
+    // negative fixes the problem with y pointing down
+    // so that our turtle moves like the logo turtle
+    if (this.penDown) line(0, 0, 0, -dist);
+    translate(0, -dist); // moves turtle (0, 0) to end of segment
+  }
+
+  bk(dist) {
+    this.fd(-dist);
+  }
+
+  rt(angle) {
+    rotate(radians(angle));
+  }
+
+  lt(angle) {
+    this.rt(-angle);
+  }
+}
+
+// draws a polygon with the specified number
+// of sides
+function polygon(t, sides) {
+  for (let i = 0; i < sides; i++) {
+    t.fd(50);
+    t.rt(360 / sides);
+  }
+}

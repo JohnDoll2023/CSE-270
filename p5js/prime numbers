@@ -1,0 +1,17 @@
+function setup() {
+  createCanvas(400, 400);
+  console.log(15485863, isPrime(15485863))
+}
+
+function isPrime(n) {
+  if (n == 1 || n == 2 || n % 2 == 0) {
+    return false;
+  }
+  for(let i = 2; i < sqrt(n); i+=2) {
+    if (n % i == 0) {
+      console.log(i);
+      return false;
+    }
+  }
+  return true;
+}

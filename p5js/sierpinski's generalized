@@ -1,0 +1,57 @@
+// Sierpinski's triangle, created
+// from a seemingly random process
+
+function setup() {
+  createCanvas(600, 600);
+  background(0);
+  stroke(255);
+  strokeWeight(10);
+
+  let verts = [];
+  // A starting vector that we rotate
+  let start = createVector(0, -height / 2);
+  let sides = 5;
+
+  for (let i = 0; i < sides; i++) {
+    verts.push(p5.Vector.rotate(start, (i * TWO_PI) / sides));
+  }
+
+  translate(width / 2, height / 2);
+
+  for (let v of verts) {
+    point(v);
+  }
+
+  // Starting random point
+  let pt = createVector(random(width), random(height));
+
+  stroke(255, 0, 0);
+  point(pt);
+
+  strokeWeight(2);
+  stroke(0, 255, 0);
+  
+  let index = int(random(verts.length)); // all vertices are possible
+  
+  for (let i = 0; i < 10000; i++) {    
+    
+    // choose a random vertex other than the current random vertex by shifting by a "safe amount"
+    let shift = int(random(1, verts.length));
+    index = (index + shift) % verts.length; 
+    
+    let randPt = verts[index];
+
+    // Move half way to whichever point was chosen
+    pt.x = (pt.x + randPt.x) / 3;
+    pt.y = (pt.y + randPt.y) / 3;
+
+    point(pt);
+  }
+}
+
+// let index = int(random(verts.length));
+
+//   for (let i = 0; i < 10000; i++) {
+//     // Choose a random point from the array
+//     let offset = int(random(verts.length - 1));
+//     index = (1 + index + offset) % verts.length;

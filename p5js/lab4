@@ -1,0 +1,44 @@
+let p0, p1, p2;
+let stage = 0;
+
+function setup() {
+  createCanvas(400, 400);
+  background(0);
+  stroke(255);
+  strokeWeight(0.5);
+  p0 = createVector(0, 400);
+  p1 = createVector(400, 400);
+  p2 = createVector(200, 0);
+  console.log("stage shaded");
+  console.log("0 0");
+  sierpinski(p0, p1, p2, 0);
+  button = createButton('next stage');
+  button.position(0, 0);
+  button.mousePressed(nextStage);
+}
+
+function sierpinski(p0, p1, p2, stage) {
+  if (stage > 0) {
+    // bottom left
+    sierpinski(createVector(p0.x, p0.y), 
+               createVector((p1.x + p0.x)/2, p1.y), 
+               createVector((p1.x + p0.x)/4 + (p0.x)/2, (p0.y + p2.y)/2), stage - 1);
+    
+    // bottom right
+    sierpinski(createVector((p0.x + p1.x)/2, p0.y), 
+               createVector(p1.x, p1.y), 
+               createVector(((p1.x + p0.x)/2 + p1.x)/2, (p0.y + p2.y)/2), stage - 1);
+    
+    // top middle
+    sierpinski(createVector((p0.x + p2.x)/2, (p0.y + p2.y)/2),                                      createVector((p1.x + p2.x)/2, (p0.y + p2.y)/2),
+               createVector(p2.x, p2.y), stage -1);
+  } else {
+    triangle(p0.x, p0.y, p1.x, p1.y, p2.x, p2.y);
+  }
+}
+
+function nextStage() {
+  background(0);
+  sierpinski(p0, p1, p2, ++stage);
+  console.log(stage, 1 - (3 ** stage) / (4 ** stage));
+}

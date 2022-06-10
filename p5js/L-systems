@@ -1,0 +1,111 @@
+function setup() {
+  createCanvas(400, 400);
+  background(0);
+  stroke(255);
+  strokeWeight(3);
+  translate(width/2, height/2)
+  let sides = 5;
+  
+  let t = new Turtle();
+  
+  //Koch's curve
+  let lsys = new LSystem("F");
+  lsys.addRule("F", "F-F++F-F")
+  
+  lsys.nextStage(); // stage 1 of Koch's curve
+  lsys.nextStage(); // stage 2 of Koch's curve
+  lsys.nextStage(); // stage 3 of Koch's curve
+  
+  //Now feed the lsystem to my turtle for drawing
+  lsys.showText(); // show the text for the current stage
+  
+}
+
+class LSystem {
+  constructor(axiom, angle) {
+    this.text = axiom;
+    this.angle = angle;
+    this.rules = [];
+  }
+  
+  // specify what each letter should be replaced with
+  addRule(letter, repl) {
+    this.rules.push([letter, repl])  
+  }
+  
+  //goes thru the text and replaces characters based on rules, if no rule is found for a 
+  // character, then just add that character to the new string
+  nextStage() {
+    let result = ""
+    
+    // loop thru each character in current string
+    for (let c of this.text) {
+      // loop thru rules
+      let found = false;
+      for(let i = 0; i < this.rules.length; i++) {
+        if (c == this.rules[i][0]) {
+          result += this.rules[i][1];
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        result += c;
+      }
+    }
+    
+    
+    this.text = result;
+  }
+  
+  showText() {
+    console.log(this.text);
+  }
+  
+  
+  
+}
+
+
+
+
+
+function polygon(t, sides, length) {
+  for (let i = 0; i < sides; i++) {
+    t.fd(length);
+    t.rt(360/sides)
+  }
+}
+  
+
+class Turtle {
+  constructor() {
+    this.penDown = true;
+  }
+  
+  pu() {
+    this.penDown = false;
+  }
+  
+  pd() {
+    this.penDown = true;
+  }
+  
+  fd(dist) {
+    if (this.penDown) line(0, 0, 0, -dist);
+    translate(0, -dist);
+  }
+  
+  bk(dist) {
+     this.fd(-dist);
+  }
+  
+  rt(angle) {
+    rotate(radians(angle))
+  }
+  
+  lt(angle) {
+    this.rt(-angle)
+  }
+  
+}

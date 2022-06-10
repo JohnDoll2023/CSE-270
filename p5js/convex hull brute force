@@ -1,0 +1,72 @@
+let pts = [];
+const BORDER = 20;
+const NUM_POINTS = 10;
+
+function setup() {
+  createCanvas(500, 500);
+
+  addRandomPoints(NUM_POINTS);
+  drawPoints();
+
+  // A very inefficient (but correct) approach to computing
+  // a convex hull is this brute-force algorithm:
+  // Consider every possible line segment. 
+  // For each line-segment, either:
+  //    all the other points are on the right, or...
+  //    all the other points are on the left, or...
+  //    some points are on the right and some are on the left.
+  // If all the points are on the same side of the segment, then that
+  // segment is part of the convex hull.
+  strokeWeight(2);
+  stroke(255, 0, 255);
+  count = 0;
+  for (let i = 0; i < pts.length - 1; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      // take the segment from pts[i] to pts[j] and 
+      // ask if each of the points is on the line
+      let rightCount = 0;
+      for (let p of pts) {
+        count++;
+        if (isRight(pts[i], pts[j], p)) {
+          rightCount++;
+        }
+      }
+      
+      // if all points are to the right or left,
+      // then the segment is in the convex hull
+      if (rightCount == pts.length - 2 || rightCount == 0) {
+        line(pts[i].x, pts[i].y, pts[j].x, pts[j].y);
+      }
+    }
+  }
+  console.log(count);
+}
+
+function isRight(start, end, p) {
+    let a = p5.Vector.sub(start, end);
+    let b = p5.Vector.sub(start, p);
+    return a.cross(b).z > 0;
+}
+
+
+
+// the pts array
+function addRandomPoints(n) {
+  for (let i = 0; i < n; i++) {
+    pts.push(
+      createVector(
+        random(BORDER, width - BORDER),
+        random(BORDER, height - BORDER)
+      )
+    );
+  }
+}
+
+// Draws the points
+function drawPoints() {
+  stroke(0, 255, 0);
+  strokeWeight(10);
+  for (let p of pts) {
+    point(p);
+  }
+}

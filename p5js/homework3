@@ -1,0 +1,147 @@
+function setup() {
+  createCanvas(375, 345);
+  // create deck and results holders
+  let deck = initDeck();
+  let numResults = Array(9);
+  let letterResults = Array(9);
+  for (let i = 0; i < numResults.length; i++) {
+    numResults[i] = Array(10).fill("", 0);
+    letterResults[i] = Array(10).fill("", 0);
+  }
+  
+  // run simulation for each player number at each dealer number 10000 times for stay and
+  // 10000 times for hit
+  for (let i = 20; i > 11; i--) {
+    for (let j = 1; j < 11; j++) {
+      // stay and hit counters
+      let sWins = 0;
+      let hWins = 0;
+      for (let k = 0; k < 20000; k++) {
+        if (k < 10000) {
+          sWins += runSim(i, j, deck, false, letterResults) ? 1 : 0;
+        } else {
+          hWins += runSim(i, j, deck, true, letterResults) ? 1 : 0;
+        }
+      }
+      // log results
+      numResults[20 - i][j - 1] = sWins > hWins ? sWins / 10000 : hWins / 10000;
+      letterResults[20 - i][j - 1] = sWins > hWins ? "s" : "h";
+    }
+  }
+  // draw results
+  drawBoard(numResults, letterResults);
+}
+
+function runSim(pStart, dStart, deck, hit, letterResults) {
+  // clear hands
+  let dealer = [];
+  let player = [];
+  let top = 1;
+  
+  // initialize hands
+  initHands(pStart, dStart, player, dealer, deck);
+  
+  // player logic
+  if (hit) {
+    while (true) {
+      player.push(deck[top++]);
+      if (hardTotal(player) > 21) {
+        return false;
+      } else if (hardTotal(player) == 21) {
+        break;
+      } else if (letterResults[20 - hardTotal(player)][dStart - 1] == 's') {
+        break;
+      }
+    }
+  }
+  
+  // dealer logic
+  let max = softTotal(dealer);
+  while(true) {
+    if (softTotal(dealer) == 21 || hardTotal(dealer) == 21) {
+      return false;
+    } else if (softTotal(dealer) > 21) {
+      if (hardTotal(dealer) > 21) {
+        return true;
+      } else if (hardTotal(dealer) > 16) {
+        return hardTotal(player) > hardTotal(dealer);
+      }
+    } else if (softTotal(dealer) > 16) {
+      return hardTotal(player) > softTotal(dealer);
+    }
+    dealer.push(deck[top++]);
+  }
+  return hardTotal(player) > max;
+}
+
+function initDeck() {
+  let deck = [];
+  // create deck beginning at 1, if i = 10, then add 16 10s, otherwise add 4 i's
+  for (let i = 1; i < 11; i++) {
+    let k = i == 10 ? 16 : 4;
+    for (let j = 0; j < k; j++) {
+      deck.push(i);
+    }
+  }
+  return deck;
+}
+
+function initHands(pStart, dStart, player, dealer, deck) {
+  // shuffle the deck
+  shuffle(deck, true);
+  // add two cards to player's hand and two cards to dealer's hand
+  player.push(10);
+  pStart % 10 == 0 ? player.push(10) : player.push(pStart % 10);
+  dealer.push(dStart);
+  dealer.push(deck[0]);
+}
+
+function hardTotal(deck) {
+  // calculate total by just counting number in deck
+  let sum = deck[0];
+  for (let i = 1; i < deck.length; i++) {
+    sum += deck[i];
+  }
+  return sum;
+}
+
+function softTotal(deck) {
+  // calculate total by counting number in deck but if it is the first ace, count it as 11
+  // and count all other aces as 1
+  let sum = 0;
+  let ace = false;
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i] == 1) {
+      sum += ace ? 1 : 11;
+      ace = true;
+    } else {
+      sum += deck[i];
+    }
+  }
+  return sum;
+}
+
+function drawBoard(numResults, letterResults) {
+  // set background to black and align text
+  background(0);
+  textAlign(CENTER, CENTER);
+  // draws the colored boxes and fills in the probabilities
+  for (let x = 0; x < 9; x++) {
+    for (let y = 0; y < 10; y++) {
+      letterResults[x][y] == 'h' ? fill(0, 255, 0) : fill(255, 0, 0);
+      square(35 + 30 * y + y, 35 + 30 * x + x, 30);
+      fill(0);
+      text(Math.round(numResults[x][y] * 100) / 100, 30 * y + y + 50, 30 * x + x + 50);
+    }
+  }
+  
+  // draws the x and y axis numbering
+  fill(255);
+  textSize(15);
+  for (let i = 0; i < 10; i++) {
+    if (i != 9) {
+      text(20 - i, 15, 30 * i + i + 50);
+    }
+    i == 0 ? text("A", 30 * i + i + 50, 15) : text(i + 1, 30 * i + i + 50, 15);
+  }
+}

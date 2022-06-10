@@ -1,0 +1,78 @@
+let pts = [];
+const BORDER = 10;
+
+function setup() {
+  createCanvas(400, 400);
+  background(28);
+
+  // gives us the same pseudorandom numbers
+  // every time the program is run.
+  // Change 42 to another number to get a different
+  // set of numbers. Delete randomSeed() altogether to get
+  // less predictable pseudorandom numbers. But seeding the
+  // random number generator can make debugging easier sometimes.
+  randomSeed(42);
+
+  addRandomPoints(10);
+  drawPoints();
+  
+  // draw all possible line segments that connect points 
+  // in the array. And print how many segments were drawn.
+  // What is the best way to do this?
+  
+  strokeWeight(1);
+  stroke(255, 0, 0);
+  let count = 0;
+  for (let i = 0; i < pts.length - 1; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      line(pts[i].x, pts[i].y, pts[j].x, pts[j].y);
+      count++;
+    }
+  }
+  console.log(count);
+  
+  // compute the closest pair of points, and print the 
+  // coordinates of those points, and the distance between
+  // them, and then connect those points with a line
+  // segment that makes it clear which pair was closest.
+  
+  let min = Number.MAX_SAFE_INTEGER;
+  let iSmall, jSmall;
+  for (let i = 0; i < pts.length - 1; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      let distance = dist(pts[i].x, pts[i].y, pts[j].x, pts[j].y);
+      if (distance < min) {
+        min = distance;
+        iSmall = i;
+        jSmall = j;
+      }
+    }
+  }
+  stroke(0, 255, 255);
+  line(pts[iSmall].x, pts[iSmall].y, pts[jSmall].x, pts[jSmall].y);
+  console.log(iSmall);
+}
+
+function draw() {}
+
+// adds a collection of n random points to
+// the pts array
+function addRandomPoints(n) {
+  for (let i = 0; i < n; i++) {
+    pts.push(
+      createVector(
+        random(BORDER, width - BORDER),
+        random(BORDER, height - BORDER)
+      )
+    );
+  }
+}
+
+// Draws the points
+function drawPoints() {
+  stroke(0, 255, 0);
+  strokeWeight(10);
+  for (let i = 0; i < pts.length; i++) {
+    point(pts[i]);
+  }
+}

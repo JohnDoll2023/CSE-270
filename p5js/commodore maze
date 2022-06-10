@@ -1,0 +1,29 @@
+// Copy the 10 print idea to make a maze
+let len = 20;
+let x = 0;
+let y = 0;
+function setup() {
+  createCanvas(400, 400);
+  stroke(255);
+  background(0);
+}
+
+function draw() {
+  if (random(1) < .5) {
+    //line(x, y, x + len, y + len);
+    fill(0, 40, 0);
+  } else {
+    //line(x, y + len, x + len, y)
+    fill(0, 140, 0);
+  }
+  square(x, y, len);
+  x+=len;
+  if (x >= width) {
+    y += len;
+    x= 0;
+  }
+  if (y >= height) {
+    background(0);
+    x = y = 0;
+  }
+}

@@ -1,0 +1,63 @@
+// Static demo of the bubble sort algorithm.
+// It does the sorting, but we don't actually see
+// any of the work that's being done. Just the final
+// result.
+
+// We would like to make an animated version of this,
+// where we can see when items are being compared
+// and swapped.
+
+let ar;
+
+function setup() {
+  createCanvas(500, 500);
+
+  ar = [];
+  for (let i = 5; i <= 50; i += 5) {
+    ar.push(i);
+  }
+  frameRate(10);
+
+  ar = shuffle(ar);
+  //reverse(ar);
+  console.log(ar);
+}
+
+function mousePressed() {
+  bubbleSort();
+}
+
+function bubbleSort() {
+  let compareCount = 0;
+  let swapCount = 0;
+  let passes = 0;
+
+  for (passes = 0; passes < ar.length - 1; passes++) {
+    for (let i = 0; i < ar.length - 1 - passes; i++) {
+      compareCount++;
+      if (ar[i] > ar[i + 1]) {
+        swapCount++;
+        let temp = ar[i];
+        ar[i] = ar[i + 1];
+        ar[i + 1] = temp;
+      }
+    }
+  }
+  console.log("comparisons: ", compareCount);
+  console.log("swaps: ", swapCount);
+  
+}
+
+function draw() {
+  background(0);
+
+  drawData(color(255));
+  
+}
+
+function drawData(c) {
+  fill(c);
+  for (let i = 0; i < ar.length; i++) {
+    circle(25 + i * 50, height / 2, ar[i]);
+  }
+}

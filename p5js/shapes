@@ -1,0 +1,43 @@
+let z = 0;
+let y = 0;
+
+function setup() {
+  createCanvas(400, 400, WEBGL); //WEBGL = 3D
+  
+}
+
+function someCodedAboutTranslate() {
+  createCanvas(400, 400);
+  background(150);
+  
+  //saves the "state" of the coordinate system
+  // and the style (colors, stroke weight, etc)
+  push();
+  
+  circle(200, 200, 50);
+  translate(100, 70); //moves entire coordinate system
+  circle(200, 200, 50);
+  strokeWeight(10);
+  point(0, 0);
+  
+  translate(-50, 17);
+  circle(200, 200, 50);
+  rotate(PI/6);
+  translate(17, -100);
+  circle(200, 200, 50);
+  
+  //restore everything
+  pop();
+  fill(0, 255, 0);
+  circle(200, 200, 50);
+}
+
+function draw() {
+  background(0);
+  z = map(mouseX, 0, width, -1000, 1000);
+  y = map(mouseY, 0, height, -PI, PI);
+  translate(0, 0, mouseX);
+  rotateY(y);
+  sphere(100); //number of divisions in the x and y directions sphere(diameter, x, y)
+  y += .01;
+}

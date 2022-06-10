@@ -1,0 +1,85 @@
+// Buffon's needle problem.
+
+// We can approximate pi by dropping needles on a floor
+// with parallel lines. The probability of the needle crossing
+// the line is linked to the value of pi.
+// Suppose the lines are spaced 100 apart (x = 0, 100, 200, 300, 400).
+// Suppose a needle of length 80 lands with its center at (170, 200),
+// and that the angle of the needle is 0 degrees. Well, then we know
+// for sure that it will intersect the floor line to its right.
+// What if the angle is 90 degrees? Now, the needle runs parallel to the lines,
+// and won't crosss any of them. But what if the angle is 45 degrees? We
+// can use a bit of trig to figure out if the needle touches a parallel line.
+
+const SPACING = 100;
+const LENGTH = 60; // length of needle, must be <= SPACING
+const TRIALS = 1000;
+
+function setup() {
+  createCanvas(400, 400);
+  background(0);
+  drawFloor();
+  
+  for (let i = 0; i < TRIALS; i++) {
+    let crosses = dropNeedle();
+  }
+
+  
+  // probability of crossing equals 2 over PI multiplied by length over spacing
+  //let crosses = dropNeedle();
+
+  //console.log(crosses);
+
+  // Once dropNeedle() is working, perform multiple trials.
+  // Then, print your pi estimate using the results.
+}
+
+// Drop a needle of length LENGTH
+// at a random location, with
+// a random angle in the range [0, PI)
+function dropNeedle() {
+  let x = random(width);
+  let y = random(height);
+  let theta = random(PI);
+
+  strokeWeight(8);
+  point(x, y);
+  
+  let dx = LENGTH/2 * cos(theta);
+  let dy = LENGTH/2 * sin(theta);
+  strokeWeight(2);
+ 
+  
+  // figure out which two lines im between
+  let xLeft = int(x / SPACING)  * SPACING;
+  let xRight = xLeft + SPACING;
+  
+  let itCrosses = x + abs(dx) >= xRight || x - abs(dx) <= xLeft;
+  console.log(itCrosses)
+  
+  if (itCrosses) {
+    stroke(0, 255, 0);
+  } else {
+    stroke(255, 0, 0)
+  }
+   line(x + dx, y + dy, x - dx, y - dy);
+
+  // 1. Figure out how to draw the needle.
+  // 2. Figure out which two floor lines the needle is between. 
+  //    (want to "round down" x to the nearest line)
+  // 3. Figure out if the needle crosses a floor line. (green = crosses, red = not)
+  
+
+  // Return whether the needle crosses a floor line
+  return itCrosses;
+}
+
+// Draws the parallel lines on the floor
+function drawFloor() {
+  strokeWeight(3);
+  stroke(255);
+
+  for (let x = 0; x <= width; x += SPACING) {
+    line(x, 0, x, height);
+  }
+}

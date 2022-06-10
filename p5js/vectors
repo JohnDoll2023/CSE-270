@@ -1,0 +1,43 @@
+function setup() {
+  // adding and subtracting and multiplying vectors
+  let a = new p5.Vector(10, 20);
+  let b = new p5.Vector(7, -3);
+  
+  // this version of add changes the vector a but not b
+  a.add(b);
+  print(a.x, a.y);
+  
+  let c = new p5.Vector(4, 6);
+  let d = new p5.Vector(2, 100);
+  let e = p5.Vector.add(c, d);
+  
+  c.mult(10);
+}
+
+function vectorBasics() {
+  createCanvas(400, 400);
+  let a = createVector(6, 8);
+  stroke(255, 0, 0);
+  strokeWeight(10);
+  point(a.x, a.y);
+  
+  print(a.x, a.y, a.z);
+  print("magnitude", a.mag()); //length of this vector, pythagorean theorem
+  print("heading", degrees(a.heading())); //direction converted from radians
+  
+  a.setMag(15); //changes magnitude but keeps direction
+  print(a.x, a.y, a.z);
+  print("magnitude", a.mag());
+  
+  a.setHeading(0); // changes direction but keeps magnitude
+  print(a.x, a.y, a.z);
+  print("magnitude", a.mag());
+  
+  let b = new p5.Vector(6, 8);
+  print("b's current magnitude", b.mag());
+  b.normalize(); //changes magnitude to 1
+  print("b's new magnitude", b.mag());
+}
+
+function draw() {
+}

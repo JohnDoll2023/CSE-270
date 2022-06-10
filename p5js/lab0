@@ -1,0 +1,44 @@
+// I need a point and a line, but only need
+// the y-value of the line
+let myLineY;
+let myPoint;
+
+function setup() {
+  createCanvas(800, 600);
+  myLineY = 300;
+  myPoint = createVector(300, 200);
+}
+
+function drawMyPointAndMyLine() {
+  // green point
+  stroke(0, 255, 0);
+  strokeWeight(5);
+  point(myPoint.x, myPoint.y);
+  
+  // red line
+  stroke(255, 0, 0);
+  line(0, myLineY, width, myLineY);
+}
+
+function colorAllPoints() {
+  // nested for loop to color all pixels
+  for (let x = 0; x < width; x++) {
+    for (let y = 0; y < height; y++) {
+      // find distance from x, y to myPoint
+      let distToMyPoint = dist(x, y, myPoint.x, myPoint.y);
+      let distToMyLine = abs(y - myLineY);
+      if (distToMyPoint > distToMyLine) {
+        set(x, y, color(255, 255, 0));
+      } else {
+        set(x, y, color(255));
+      }
+    }
+  }
+  updatePixels();
+}
+
+function draw() {
+  colorAllPoints();
+  drawMyPointAndMyLine();
+  myPoint = createVector(mouseX, mouseY);
+}

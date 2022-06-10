@@ -1,0 +1,96 @@
+// Here you will create an animated version of the
+// brute-force closest-pair algorithm. The big idea
+// of that algorithm is:
+// 1. Visit each pair of points
+// 2. As you do, keep track of which pair is
+//    the closest SO FAR, comparing each of the
+//    other pairs to the best pair so far.
+// 3. Each time you find a new closest pair,
+//    update that information.
+
+// SO...in your animation, you should be able to
+// see:
+// * Which pair of points is the closest so far
+// * Which two pairs are being compared
+// Show these as line segments.
+// See full instructions in the lab2 writeup
+
+let pts = [];
+const BORDER = 10;
+let iSmall, jSmall;
+let i = 0, j = 1;
+let smallest = Number.MAX_SAFE_INTEGER
+
+// You will need some global variables here,
+// and you will use the draw() function to update
+// those variables.
+
+function setup() {
+  createCanvas(400, 400);
+  background(28);
+  frameRate(30);
+  // comment this out if you want things
+  // to be more random
+  randomSeed(42);
+
+  // how many points do you want?
+  // your algorithm should work well for any
+  // number of points >= 2
+  addRandomPoints(30);
+  drawPoints();
+  
+  
+}
+
+// Most of the algorithm goes here.
+function draw() {
+  clear();
+  drawPoints();
+  strokeWeight(1);
+  stroke(255, 0, 0);
+  line(pts[i].x, pts[i].y, pts[j].x, pts[j].y);
+  
+  if (dist(pts[i].x, pts[i].y, pts[j].x, pts[j].y) < smallest && dist(pts[i].x, pts[i].y, pts[j].x, pts[j].y) != 0) {
+    iSmall = i;
+    jSmall = j;
+    smallest = dist(pts[iSmall].x, pts[iSmall].y, pts[jSmall].x, pts[jSmall].y);
+  }
+  
+  stroke(0, 255, 255);
+  line(pts[iSmall].x, pts[iSmall].y, pts[jSmall].x, pts[jSmall].y);
+  if ((i + 1) === pts.length) {
+    noLoop();
+    clear();
+    drawPoints();
+    strokeWeight(1);
+    stroke(0, 255, 255);
+    line(pts[iSmall].x, pts[iSmall].y, pts[jSmall].x, pts[jSmall].y);
+  }
+  j++;
+  if (j === pts.length) {
+    i++;
+    j = 0;
+  }
+}
+
+// adds a collection of n random points to
+// the pts array
+function addRandomPoints(n) {
+  for (let i = 0; i < n; i++) {
+    pts.push(
+      createVector(
+        random(BORDER, width - BORDER),
+        random(BORDER, height - BORDER)
+      )
+    );
+  }
+}
+
+// Draws the points
+function drawPoints() {
+  stroke(0, 255, 0);
+  strokeWeight(10);
+  for (let p of pts) {
+    point(p);
+  }
+}

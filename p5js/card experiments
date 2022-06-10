@@ -1,0 +1,19 @@
+function setup() {
+  let deck = [];
+  for (let i = 0; i < 52; i++) {
+    deck.push(i);
+  }
+  
+  // bad shuffle
+
+  for (let count = 0; count < 500; count++) {
+    let i = int(random(52));
+    let j = int(random(52));
+    // swap
+    let temp = deck[i];
+    deck[i] = deck[j];
+    deck[j] = temp;
+  }
+  
+  console.log(deck);
+}

@@ -1,0 +1,101 @@
+let slider;
+
+function setup() {
+  createCanvas(400, 400);
+  translate(width/2, height/2)
+  
+  background(0)
+  stroke(255, 255, 0)
+  strokeWeight(150)
+  scale(0.001)
+  
+//   pointPolar(0,0)
+//   pointPolar(2, PI/4)
+  
+  for (let angle = 1; angle < 100000 * PI; angle ++) {
+    if (isPrime(angle)) {
+      pointPolar(angle, angle);
+    } 
+  }
+
+  
+  // slider = createSlider(1, 100, 3, 1);
+  // slider.position(10, height);
+  // slider.style("width", "200px");
+  // noStroke();
+  
+  // console.log(primeFactorize(1001))
+}
+
+//plot the polar coordinates r, theta by converting to x,y
+function pointPolar(r, theta) {
+  point(r * cos(theta), r * sin(theta));
+}
+
+// function draw() {
+//   drawPrimeGrid();
+// }
+
+// returns the "prime factorization" of a number
+// (an array containing the numbers) that divide it
+// Note that: if n == 1, returns an empty array, which is great.
+function primeFactorize(n) {
+  let result = [];
+  let factor = 2;
+  
+  while (n > 1) {
+    while (n % factor == 0) {
+      result.push(factor);
+      n = n / factor;
+    }
+    factor++;
+  }
+  
+  return result;
+  
+}
+
+
+// Returns true if a number is prime, and
+// false otherwise
+function isPrime(n) {
+  if (n == 1) return false;
+  if (n == 2) return true;
+  if (n % 2 == 0) return false;
+
+  for (let i = 3; i <= sqrt(n); i += 2) {
+    // a remainder of 0 means we
+    // found a factor other than
+    // 1 or n:
+    if (n % i == 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Shows the
+function drawPrimeGrid() {
+  perRow = (slider.value());
+  
+  let x = 0;
+  let y = 0;
+  squareSize = width / perRow;
+
+  for (let i = 1; i <= perRow * perRow; i++) {
+    if (isPrime(i)) {
+      fill(110, 50, 0, 10);
+    } else {
+      fill(255, 255, 0, 10);
+    }
+    square(x, y, squareSize);
+    x += squareSize;
+    if (i % perRow == 0) {
+      x = 0;
+      y += squareSize;
+    }
+  }
+}
+
+

@@ -1,0 +1,43 @@
+// If 6 different prizes are randomly distributed
+// in boxes of cereal, how many boxes might you need
+// to buy in order to get all prizes/
+// or
+// How many times must you roll a die to get all 6 values
+
+function setup() {
+  
+  const TRIALS = 1000;
+  let sumCounts = 0;
+  
+  
+  
+  for (let trial = 0; trial < TRIALS; trial++) {
+    let data = Array(6).fill(false, 0);
+    let count = 0;
+    while (!done(data)) {
+      count++;
+      data[floor(random(6))] = true;
+    }
+    
+    sumCounts += count;
+  }
+  
+  console.log(sumCounts / TRIALS);
+  
+  // roll the die until we get all 6 values,
+  // and print the number of dice rolls
+  
+  
+  //return console.log(count);
+  
+}
+
+// returns true if all items in the array are true
+function done (data) {
+  for (let d of data) {
+    if (!d) {
+      return false;
+    }
+  }
+  return true;
+}

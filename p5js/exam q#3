@@ -1,0 +1,25 @@
+function setup() {
+  const TRIALS = 1000;
+  let successes = 0;
+  
+  for (let trial = 0; trial < TRIALS; trial++) {
+    // BEGIN 1 TRIAL
+
+    // counter for # of times A is chosen
+    let aCount = 0;
+    
+    // run a trail of 10 choices
+    for (let choice = 0; choice < 10; choice++) {
+      if (random(1) < 0.4) {
+        aCount++;
+      }
+    }
+    
+    // check to see if more people chose A than B
+    if (aCount > 5) {
+      successes++;
+    }
+  }
+  
+  console.log(successes/TRIALS);
+}

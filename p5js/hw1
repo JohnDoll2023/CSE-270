@@ -1,0 +1,118 @@
+const NUM_OF_POINTS = 10;
+let pts = [];
+let method = 'euclidian';
+let gradient = false;
+
+function setup() {
+  createCanvas(400, 400);
+  // Fill array with points
+  for (let i = 0; i < NUM_OF_POINTS; i++) {
+    pts[i] = new Site(random(width), random(height), color(random(255), random(255), random(255)));
+  }
+  colorPixels();
+}
+
+// shade in pixel based on closest point
+function colorPixels() {
+  if (gradient) {
+    for (let x = 0; x < width; x++) {
+      for (let y = 0; y < height; y++) {
+        let pointAttributes = calculateClosestPoint(x, y);
+        let color = pts[pointAttributes[0]].color;
+        color.setAlpha(pointAttributes[1]);
+        set(x, y, color);
+      }
+    }
+  } else {
+    for (let x = 0; x < width; x++) {
+      for (let y = 0; y < height; y++) {
+        let pointAttributes = calculateClosestPoint(x, y);
+        let color = pts[pointAttributes[0]].color;
+        color.setAlpha(255);
+        set(x, y, color);
+      }
+    }
+  }
+  updatePixels();
+  drawPoints();
+}
+
+// draw the black points on the canvas
+function drawPoints() {
+  strokeWeight(5);
+  for (let i = 0; i < pts.length; i++) {
+    point(pts[i].x, pts[i].y);
+  }
+}
+
+// returns array index of closet point to given coordinates
+function calculateClosestPoint(x, y) {
+  let min = Number.MAX_SAFE_INTEGER;
+  let pointNum, distToPoint;
+  for (let i = 0; i < pts.length; i++) {
+    distToPoint = getDist(x, y, pts[i].x, pts[i].y);
+    if (distToPoint < min) {
+      pointNum = i;
+      min = distToPoint;
+    }
+  }
+  return [pointNum, min];
+}
+
+// gets distance between two points
+function getDist(x1, y1, x2, y2) {
+  // switch on which method is selected
+  switch (method) {
+    case 'euclidian':
+      return dist(x1, y1, x2, y2);
+    case 'taxicab':
+      return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+    case 'chess':
+      // Is the abs value of the difference between the x coords less than the
+      // abs value of the difference between the y coords? If it is, then return
+      // abs value of the difference between the y coords, otherwise return abs
+      // value of difference between x coords
+      return (Math.abs(x1 - x2) < Math.abs(y1 - y2) ? Math.abs(y1 - y2) : Math.abs(x1 - x2));
+    default:
+      return dist(x1, y1, x2, y2);
+  }
+}
+
+// tells canvas to add or remove points based on mouse press
+function mousePressed() {
+  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+    if (mouseButton === LEFT && pts.length > 1) {
+      pts.splice(calculateClosestPoint(mouseX, mouseY)[0], 1);
+    } else if (mouseButton === RIGHT) {
+      pts.push(new Site(mouseX, mouseY, color(random(255), random(255), random(255))));
+    }
+    colorPixels();
+  }
+}
+
+// changes display based on certain key presses
+function keyPressed() {
+  switch (keyCode) {
+    case LEFT_ARROW:
+      method = method === 'euclidian' ? 'chess' : (method === 'chess' ? 'taxicab' : 'euclidian');
+      break;
+    case RIGHT_ARROW:
+      method = method === 'taxicab' ? 'chess' : (method === 'chess' ? 'euclidian' : 'taxicab');
+      break;
+    case 32:
+      gradient = !gradient;
+      break;
+    default:
+      break;
+  }
+  colorPixels();
+}
+
+// class for points that contains a color
+class Site {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+  }
+}

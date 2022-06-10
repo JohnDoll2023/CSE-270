@@ -1,0 +1,164 @@
+// Stores the points that represent the shape.
+// The shape is created by connecting each point to the
+// next point. Then, the last point gets connected to the
+// first point to complete the shape.
+let pts = [];
+let table;
+
+// This boolean lets you toggle which mode your program is
+// working in
+let fill = false;
+
+// YOU DO NOT NEED ANY ADDITIONAL GLOBAL VARIABLES.
+
+// This reads the file.
+function preload() {
+  // Try shape0 through shape8. You can also create
+  // your own files if you want, as long as they follow
+  // the format of the other shape files.
+  let file = "shape8.csv";
+  table = loadTable(file, "csv", "header");
+}
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Reads the data from the table
+  for (let row = 0; row < table.getRowCount(); row++) {
+    pts.push(createVector(table.get(row, 0), table.get(row, 1)));
+  }
+  showShape();
+}
+
+// Pressing the mouse should toggle the fill variable
+// between true and false.
+function mousePressed() {
+  fill = !fill;
+  // add some additional code here based on the value
+  // of fill.
+  if (fill) {
+    showShape();
+    fillShape();
+  }
+}
+
+// Returns whether the point p is to the right
+// of the directed segment from start to end
+// THIS METHOD EXPECTS THAT IT WILL HAVE EXACTLY 3 PARAMETERS,
+// ALL OF WHICH ARE VECTORS, AND RETURNS A BOOLEAN.
+// DON'T CHANGE THE HEADER OR THE RETURN TYPE.
+function isRight(start, end, p) {
+  let a = p5.Vector.sub(end, start);
+  let b = p5.Vector.sub(p, start);
+  return a.cross(b).z > 0;
+}
+
+// Returns whether the segments from start1 to end1
+// and from start2 to end2 interesect
+// THIS METHOD EXPECTS THAT IT WILL HAVE EXACTLY 4 PARAMETERS,
+// ALL OF WHICH ARE VECTORS, AND RETURNS A BOOLEAN.
+// DON'T CHANGE THE HEADER OR THE RETURN TYPE.
+function intersects(start1, end1, start2, end2) {
+  if (isRight(start1, end1, start2) != isRight(start1, end1, end2)) {
+    if (isRight(start2, end2, start1) != isRight(start2, end2, end1)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Use the ray-casting algorithm as we used it in class.
+// returns true if the specified point at x, y is inside the
+// polygon determined by the points in the pts array, and
+// false otherwise.
+// ALSO: if the global fill variable is set to false,
+// then this method also highlights each segment of the shape that is crossed
+// by connecting the segment from (x, y) to some known outside point
+// THIS METHOD EXPECTS THAT IT WILL HAVE EXACTLY 2 PARAMETERS,
+// WHICH ARE THE X AND Y COORDINATES OF A POINT TO TEST, AND
+// RETURNS A BOOLEAN.
+// DON'T CHANGE THE HEADER OR THE RETURN TYPE.
+function isInside(x, y) {
+  count = 0;
+  strokeWeight(0);
+  line(0, 0, x, y);
+  strokeWeight(1);
+  stroke(0, 0, 250);
+  for(let i = 0; i < pts.length; i++) {
+    if (i + 1 == pts.length) {
+      if (intersects(createVector(0,0), createVector(x, y), pts[0], pts[i])) {
+        if (!fill) {
+          line(pts[0].x, pts[0].y, pts[i].x, pts[i].y);
+        }
+        count++;
+      }
+    }
+    else if (intersects(createVector(0,0), createVector(x, y), pts[i], pts[i + 1])) {
+      if (!fill) {
+        line(pts[i].x, pts[i].y, pts[i + 1].x, pts[i + 1].y);
+      }
+      count++;
+    }
+  }
+  return count % 2 == 0 ? false : true;
+}
+
+// color all pixels as follows: pixels inside the shape
+// should be one color, and all other pixels should be
+// another color. Use set() to color the pixels (not point()).
+// After coloring the pixels, call updatePixels(),
+// followed by showShape() (AFTER THE LOOPS are complete).
+// If you call updatePixels() inside the loop,
+// your code will be VERY slow.
+// To determine if a pixel is inside or outside a shape, use the
+// isInside() method.
+function fillShape() {
+  for(let x = 0; x < width; x++) {
+    for(let y = 0; y < height; y++) {
+      if (isInside(x, y)) {
+        set(x, y, color(255, 0, 0));
+      }
+    }
+  }
+  updatePixels();
+}
+
+// when the mouse moves, (and ONLY if fill is false):
+// Print INSIDE or OUTSIDE to the console, to indicate
+// whether the mouse is inside or outside the shape.
+// show the ray-casting algorithm by:
+//    drawing a segment from the mouse to an outside point
+//    highlighting all the sides of the polygon
+//    that intersect the segment. 
+//    (The isInside() method has the job
+//    of highlighting the crossed segments)
+function mouseMoved() {
+  if (!fill) {
+    showShape();
+    line(0, 0, mouseX, mouseY);
+    isInside(mouseX, mouseY) ? console.log("INSIDE") : console.log("OUTSIDE");
+  }
+}
+
+
+// Draws the points, but also needs to draw the segments
+function showShape() {
+  background(0);
+  strokeWeight(5);
+  stroke(255, 255, 0);
+  for (let p of pts) {
+    point(p);
+  }
+
+  // Draw the segments by connecting each point
+  // to the next point (and connect the last point to the first point)
+  strokeWeight(1);
+  stroke(0, 255, 0);
+  for (let i = 0; i < pts.length; i++) {
+    if (i + 1 != pts.length) {
+      line(pts[i].x, pts[i].y, pts[i + 1].x, pts[i + 1].y);
+    } else {
+      line(pts[i].x, pts[i].y, pts[0].x, pts[0].y);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+let WHITE;
+let YELLOW;
+let currentColor;
+
+// store all x,y values of points
+let pts = [];
+
+function setup() {
+  createCanvas(500, 400);
+  
+  WHITE = color(255);
+  YELLOW = color(255, 255, 0);
+  currentColor = WHITE;
+  
+  // Fill array with 25 vector
+  for (let i = 0; i < 25; i++) {
+    pts[i] = new Site(random(width), random(height), color(random(255), 0, 0));
+  }
+}
+
+// responds to pressing DOWN on the mouse button
+// mousePressed more reliable than mouseClicked
+function mousePressed() {
+  // add a new point with a random shade of red
+  // at the location where mouse was clicked
+  pts.push(new Site(mouseX, mouseY, color(random(255), 0, 0)));
+}
+
+// responds to any key press
+// the key variable tells you which key
+// keyCode is useful for less normal keys
+function keyPressed() {
+  // if c is pressed, make all points yellow
+  if (key === 'c') {
+    for (let i = 0; i < pts.length; i++) {
+      pts[i].color = YELLOW;
+    }
+  }
+}
+
+function draw() {
+  // Draw 25 random points
+  strokeWeight(5);
+  for (let i = 0; i < pts.length; i++) {
+    stroke(pts[i].color);
+    point(pts[i].x, pts[i].y);
+  }
+}
+
+// class to group together the x, y, color for each point/site
+class Site {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+  }
+}

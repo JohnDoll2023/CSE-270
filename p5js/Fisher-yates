@@ -1,0 +1,89 @@
+// let img;
+// function preload() {
+//   img= loadImage('cards.png');
+// }
+
+function setup() {
+  // createCanvas(img.width, img.height);
+  // console.log(img.width);
+  // console.log(img.height);
+  
+  let deck = [];
+  for (let i = 0; i < 52; i++) {
+    deck.push(i);
+  }
+  
+  fyShuffle(deck);
+  
+  let top = 0;
+  let hand = [];
+  for (let i = 0; i < 5; i++) {
+    hand.push(deck[top++]);
+  }
+  
+  
+  // for debugging, use this line 
+//   hand = [1, 2, 3, 4, 5];
+  
+//   if(hasFlush(hand)) {
+//     console.log("flush");
+//   }
+  
+  //console.log(hand);
+  
+  // returns true if the poker hand contains flush
+  //probability ~.2%
+  function hasFlush(cards) {
+    c1 = int(cards[0]/13);
+    c2 = int(cards[1]/13);
+    c3 = int(cards[2]/13);
+    c4 = int(cards[3]/13);
+    c5 = int(cards[4]/13);
+    return (c1 == c2 && c2 == c3 && c3 == c4 && c4 == c5);
+  }
+  
+  let successes = 0;
+  for (let i = 0; i < 1000000; i++) {
+    hand = getHand();
+    successes += hasFlush(hand) ? 1 : 0;
+    fyShuffle(deck);
+  }
+  console.log(successes/1000000);
+  
+  
+//   function showCards(hand, x, y) {
+    
+//     const CWIDTH = 949/13;
+//     const CHEIGHT = 392/4;
+
+
+//     for (let i = 0; i < hand.length; i++) {
+//       //display first card in hand
+//       let c = hand[i];
+//       let suit = int(c / 13)
+//       let value = c % 13
+
+//       let cardGraphic = img.get(value * CWIDTH, suit * CHEIGHT, CWIDTH, CHEIGHT)
+//       image(cardGraphic, x + i * 15, y);
+//     }
+//   }
+  
+  function getHand() {
+    let top = 0;
+    let hand = [];
+    for (let i = 0; i < 5; i++) {
+      hand.push(deck[top++]);
+    }
+    return hand;
+  }
+  
+  function fyShuffle(deck) {
+    for (let i = 0; i < 51; i++) {
+      let j = int(random(i, 52));
+      
+      let temp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = temp;
+    }
+  }
+}

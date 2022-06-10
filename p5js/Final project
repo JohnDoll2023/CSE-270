@@ -1,0 +1,185 @@
+let pts = [];
+let closestPts = Array(2); // save two closest points
+let minVal = Number.MAX_SAFE_INTEGER; // min distance
+let count = 0; // count number of comparisons made
+let NUM_POINTS = 40;
+const BORDER = 60;
+
+function setup() {
+  createCanvas(600, 600);
+  workhorse();
+  button = createButton('Refresh');
+  button.position(0, 600);
+  button.mousePressed(workhorse);
+  button1 = createButton('Increase Points');
+  button1.position(75, 600);
+  button1.mousePressed(incPoints);
+  button2 = createButton('Decrease Points');
+  button2.position(195, 600);
+  button2.mousePressed(decPoints);
+}
+
+// helper function to increase number of points from button
+function incPoints() {
+  NUM_POINTS++;
+}
+
+// helper function to decrease number of points from button
+function decPoints() {
+  if (NUM_POINTS > 2) {
+    NUM_POINTS--;
+  }
+}
+
+// sets up the problem so that only work left to do is the actual D&C algorithm
+function workhorse() {
+  // resetting global variables
+  closestPts = Array(2);
+  minVal = Number.MAX_SAFE_INTEGER;
+  count = 0;
+  
+  // add random points
+  addRandomPoints(NUM_POINTS);
+  // sort the points based on x value
+  pts.sort(function(a,b) {
+    return a.x - b.x;
+  });
+  
+  // print smallest distance between points, the associated line, the points
+  // themselves, the number of points, and the number of comparisons
+  fill(255, 0, 0)
+  stroke(255, 0, 0);
+  strokeWeight(1)
+  textSize(15)
+  output = "Distance: " + closest(pts, pts.length)
+  text(output, 50, 15)
+  output = "Number of points: " + NUM_POINTS
+  text(output, 278, 15)
+  output = "Point 1: " + closestPts[0].x
+  text(output, 50, 30)
+  output = closestPts[0].y
+  text(output, 278, 30)
+  output = "Point 2: " + closestPts[1].x
+  text(output, 50, 45)
+  output = closestPts[1].y
+  text(output, 278, 45)
+  output = "D&C Comparisons: " + count
+  text(output, 50, 60)
+  output = "Brute Force Comparisons: " + (NUM_POINTS * NUM_POINTS)
+  text(output, 278, 60)
+  strokeWeight(3);
+  line(closestPts[0].x, closestPts[0].y, closestPts[1].x, closestPts[1].y);
+}
+
+// calculate the distance between points
+function bruteForce(ptsArr, size) {
+  // set the min value
+  let localMinVal = Number.MAX_SAFE_INTEGER;
+  
+  // loop through all points to find the min distance
+  for (let i = 0; i < size; i++) {
+    for (let j = i + 1; j < size; j++) {
+      count++;
+      let minDis = dist(ptsArr[i].x, ptsArr[i].y, ptsArr[j].x, ptsArr[j].y)
+      if (minDis < localMinVal) {
+        localMinVal = minDis;
+        
+        // if the local min is less than the global min, save the points
+        if (localMinVal < minVal) {
+          closestPts[0] = ptsArr[i];
+          closestPts[1] = ptsArr[j];
+          minVal = localMinVal;
+        }
+      }
+    }
+  }
+  
+  return localMinVal;
+}
+
+// find the closest pair of points in a strip
+function stripClosest(strip, size, localMinVal) {
+  // sort the points by y value
+  pts.sort(function(a,b) {
+    return a.y - b.y;
+  });
+  
+  // find the closest pair of pointns
+  for (let i = 0 ; i < size; i++) {
+    for (let j = i + 1; j < size && (strip[j].y - strip[i].y) < localMinVal; j++) {
+      let minDis = dist(strip[i].x, strip[i].y, strip[j].x, strip[j].y)
+      if (minDis < localMinVal) {
+        localMinVal = minDis;
+        
+        // if the local min is less than the global min, save the points
+        if (localMinVal < minVal) {
+          closestPts[0] = strip[i];
+          closestPts[1] = strip[j];
+          minVal = localMinVal;
+        }
+      }
+    }
+  }
+  
+  return localMinVal;
+}
+
+// commanding method of algorithm to find the closest pair of points
+function closest(ptsArr, size) {
+  // if the size of the array is less than or equal to 3
+  // then compute the distance between the values
+  if (size <= 3) {
+    return bruteForce(ptsArr, size);
+  }
+  
+  // get the midpoint of the array
+  let mid = Math.floor(size/2);
+  let midpoint = ptsArr[mid];
+  
+  // get the left and right subarrays and find their minimums
+  let leftArr = subset(ptsArr, 0, mid);
+  let rightArr = subset(ptsArr, mid, size);
+  let left = closest(leftArr, mid)
+  let right = closest(rightArr, size-mid)
+  
+  // take the min value from these two arrays
+  let localMinVal = Math.min(left, right);
+  
+  // create a strip to compare points in
+  let strip = Array(size);
+  let j = 0;
+  for (let i = 0; i < size; i++) {
+    if (Math.abs(ptsArr[i].x - midpoint.x) < localMinVal) {
+      strip[j] = ptsArr[i];
+      j++;
+    }
+  }
+  
+  // return the smallest distance between points
+  return Math.min(localMinVal, stripClosest(strip, j, localMinVal));
+}
+
+// adds a collection of n random points to the pts array
+function addRandomPoints(n) {
+  // reset global variable of points
+  pts = []
+  for (let i = 0; i < n; i++) {
+    pts.push(
+      createVector(
+        random(BORDER, width - BORDER),
+        random(BORDER, height - BORDER)
+      )
+    )
+  }
+  drawPoints();
+}
+
+// Draws the points
+function drawPoints() {
+  clear()
+  stroke(0, 255, 0)
+  strokeWeight(10);
+  for (let p of pts) {
+    point(p);
+  }
+}

@@ -1,0 +1,17 @@
+let r, theta;
+
+function setup() {
+  createCanvas(400, 400);
+  
+  r = 0;
+  theta = 0;
+  
+  
+}
+
+function draw() {
+  translate(width/2, height/2)
+  circle(r*cos(theta), r*sin(theta), 50);
+  r += .5
+  theta += .1 * r;
+}

@@ -1,0 +1,53 @@
+// a collection of random points
+let pts = [];
+// endpoints of a directed line segment
+let start, end;
+
+function setup() {
+  createCanvas(400, 400);
+  background(28);
+  start = createVector(width/2, height/2);
+  
+  for (let i = 0; i < 100000; i++) {
+    pts.push(createVector(random(width), random(height)));
+  }
+  
+}
+
+function draw() {
+  background(0);
+  end = createVector(mouseX, mouseY);
+  
+  strokeWeight(2);
+  stroke(255, 255, 0);
+  line(start.x, start.y, end.x, end.y);
+  
+  strokeWeight(6);
+  
+  // points to the right of the directed segment
+  // should be green, and those on the left
+  // should be red
+  for (let p of pts) {
+    if (isRight(start, end, p)) {
+      stroke(0, 255, 0);
+    } else  {
+      stroke(255, 0, 0);
+    }
+    point(p);
+  }
+  
+}
+
+// returns true if p is to the right of the
+// directed line segment from start to end
+function isRight(start, end, p) {
+  let a = p5.Vector.sub(end, start); 
+  let b = p5.Vector.sub(p, start);
+  return a.cross(b).z > 0;
+}
+
+function mousePressed() {
+  start = createVector(mouseX, mouseY);
+}
+
+

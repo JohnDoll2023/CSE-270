@@ -1,0 +1,45 @@
+// use monte carlo integartion to estimate the area 
+// under y = sin(x) form 0 to pi, expecting answer around 2
+
+function setup() {
+  createCanvas(400, 400);
+  drawCurve()
+  let TRIALS = 1000
+  let underCount = 0;
+  for (let i = 0; i < TRIALS; i++) {
+    underCount += throwDart() ? 1 : 0;
+  }
+  
+  console.log("under", underCount)
+  console.log("Area", underCount * PI / TRIALS)
+}
+
+function drawCurve() {
+  background(0)
+  stroke(255)
+  for (let x = 0; x <= PI; x += 0.01) {
+    let y = sin(x)
+    let xPixel = map(x, 0, PI, 0, width)
+    let yPixel = map(y, -1, 1, height, 0)
+    point(xPixel, yPixel)
+  }
+}
+
+function throwDart() {
+  strokeWeight(4)
+  let x = random(PI)
+  let y = random(0, 1)
+  
+  //is (x,y) under the function y = sin(x)
+  let underCurve = sin(x) > y;
+  if (underCurve) {
+    stroke(0, 255, 0)
+  } else {
+    stroke(255, 0, 0)
+  }
+  
+  let xPixel = map(x, 0, PI, 0, width)
+  let yPixel = map(y, -1, 1, height, 0)
+  point(xPixel, yPixel)
+  return underCurve;
+}

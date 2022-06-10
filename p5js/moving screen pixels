@@ -1,0 +1,25 @@
+let timeOffset = 0;
+let xt = 0;
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  let yOffset = xt;
+  //color all pixels
+  for (let x = 0; x <width; x++) {
+    let xOffset = 0;
+    for (let y = 0; y < height; y++) {
+      
+      //let c = random(256);
+      //let c = random(1) < .5 ? 0 : 255;
+      let c = 256 * noise(xOffset, yOffset, timeOffset);
+      set(x, y, color(0, c, 0));
+      xOffset += .03;
+    }
+    yOffset += 0.03
+  }
+  updatePixels();
+  timeOffset += 0.01;
+  xt++;
+}

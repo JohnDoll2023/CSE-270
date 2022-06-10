@@ -1,0 +1,22 @@
+function setup() {
+  createCanvas(400, 400);
+  let m = 64, a = 17, c = 5;
+  let x = 4;
+  let origX = x;
+  let count = 0;
+  
+  // for (let i = 0; i < 5; i++) {
+  //   x = (a * x + c) % m;
+  //   console.log(x);
+  // }
+  do {
+    x = (a * x + c) % m;
+    count++;
+  }
+  while (x != origX);
+  console.log(count);
+}
+
+function draw() {
+  background(220);
+}
