@@ -1,0 +1,560 @@
+<HTML>  
+<HEAD>
+  <TITLE>Words and Lists</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<font face="Geneva,Helvetica,Arial">
+
+<!-- AppleSegStart="ASCII" -->
+<A NAME="ASCII"></A>
+<!-- AppleSegDescription="Output a character's ASCII code" -->
+<h2> ASCII </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>ASCII</b> <I>word</I></P>
+<P>Output the ASCII code of the first character of <I>word</I>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Ascii "a</p>
+<p ><font color=blue>97</font></p>
+<p>Ascii "ABC</p>
+<p ><font color=blue>65</font></p>
+</table>
+<p>Opposite of <A HREF="#CHAR">Char</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="ButFirst" -->
+<A NAME="BUTFIRST"></A>
+<A NAME="BF"></A>
+<!-- AppleSegDescription="Output all but the first element of an object." -->
+<h2>ButFirst, BF</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>ButFirst</b> <I>list</I> <BR>
+<b>ButFirst</b> <I>word</I></P>
+<P>Output all but the first element of an object.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>ButFirst "abcdefghijk </p>
+<p ><font color=blue>bcdefghijk</font></p>
+<p>butfirst [thing1 thing2 thing3]</p>
+<p ><font color=blue>[thing2 thing3]</font></p>
+</table>
+<p>See also <A HREF="#BUTLAST">ButLast</a>, 
+<A HREF="#COUNT">Count</a>, 
+<A HREF="#EMPTY">Empty?</a>, 
+<A HREF="#FIRST">First</a>, 
+<A HREF="#FIRSTPUT">FirstPut</a>, 
+<A HREF="#ITEM">Item</a>, 
+<A HREF="#LAST">Last</a>, 
+<A HREF="#LASTPUT">LastPut</a>, 
+<A HREF="#LIST">List</a>, 
+<A HREF="#LISTP">List?</a>, 
+<A HREF="#MEMBER">Member?</a>.<BR>&nbsp;</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="ButLast" -->
+<A NAME="BUTLAST"></A>
+<A NAME="BL"></A>
+<!-- AppleSegDescription="Output all but the last element of an object." -->
+<h2> ButLast, BL</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>ButLast <I>word</I> <BR>
+ButLast <I>list</I></P>
+<P>Output all but the last element of an object.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> ButLast "xyz </p>
+<p ><font color=blue>xy</font></p>
+<p> ButLast [thing1 thing2 thing3]</p>
+<p ><font color=blue>[thing1 thing2 ]</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, <A HREF="#COUNT">Count</a>, <A HREF="#EMPTY">Empty?</a>, <A HREF="#FIRST">First</a>, <A HREF="#FIRSTPUT">FirstPut</a>, <A HREF="#ITEM">Item</a>, <A HREF="#LAST">Last</a>, <A HREF="#LASTPUT">LastPut</a>, <A HREF="#LIST">List</a>, <A HREF="#LISTP">List?</a>, <A HREF="#MEMBER">Member?</a>.<BR>&nbsp;</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="Char" -->
+<A NAME="CHAR"></A>
+<!-- AppleSegDescription="Output the character for an ASCII code" -->
+<h2> Char </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>char <I>number</I></P>
+<P>Output the character whose ASCII code is <I>number </I>(opposite
+of <A HREF="#ASCII">ASCII</A>).</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Char 68</p>
+<p ><font color=blue>D</font></p>
+</table>
+<p>See also <A HREF="#ASCII">ASCII</a>
+</table>
+<!-- AppleSegEnd -->
+
+
+
+
+<!-- AppleSegStart="Count" -->
+<A NAME="COUNT"></A>
+<!-- AppleSegDescription="Output the number of elements in an object" -->
+<h2>Count</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Count</b> <I>list</I> <BR>
+<b>Count</b> <I>word</I></P>
+<P>Output the number of elements in an object.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> Count "xyz </p>
+<p ><font color=blue>3</font></p>
+<p> Count [thing1 thing2 thing3 thing4]</p>
+<p ><font color=blue>4</font></p>
+<p> Count [[23 45 56 78] purple []]</p>
+<p ><font color=blue>3</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, <A HREF="#BUTLAST">ButLast</a>, <A HREF="#EMPTY">Empty?</a>, <A HREF="#FIRST">First</a>, <A HREF="#FIRSTPUT">FirstPut</a>, <A HREF="#ITEM">Item</a>, <A HREF="#LAST">Last</a>, <A HREF="#LASTPUT">LastPut</a>, <A HREF="#LIST">List</a>, <A HREF="#LISTP">List?</a>, <A HREF="#MEMBER">Member?</a>.<BR>&nbsp;</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="Empty" -->
+<A NAME="EMPTY"></A>
+<A NAME="EMPTYP"></A>
+<!-- AppleSegDescription="Output whether an object has no elements" -->
+<h2>Empty?, Emptyp </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Empty?</b> <I>word</I> <BR>
+<b>Empty?</b> <I>list</I></P>
+<P>Outputs true if an object has no elements.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> Empty? "xyz </p>
+<p ><font color=blue>false</font></p>
+<p> Empty? "</p>
+<p ><font color=blue>true</font></p>
+<p> Empty? [[23 45 56 78] purple []]</p>
+<p ><font color=blue>false</font></p>
+<p> Empty? ButFirst [abc]</p>
+<p ><font color=blue>true</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, <A HREF="#BUTLAST">ButLast</a>, <A HREF="#COUNT">Count</a>, <A HREF="#FIRST">First</a>, <A HREF="#FIRSTPUT">FirstPut</a>, <A HREF="#ITEM">Item</a>, <A HREF="#LAST">Last</a>, <A HREF="#LASTPUT">LastPut</a>, <A HREF="#LIST">List</a>, <A HREF="#LISTP">List?</a>, <A HREF="#MEMBER">Member?</a>.<BR>&nbsp;</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="Equal" -->
+<A NAME="EQUAL"></A>
+<A NAME="EQUALP"></A>
+<A NAME="EQUAL?"></A>
+<!-- AppleSegDescription="Outputs whether objects are equal" -->
+<h2>Equal?, Equalp</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Equal</b> <I>object1 object2</I></P>
+
+<P>Outputs true if <I>object1 </I>and<I> object2&nbsp;</I> are
+equal.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> Equal? "xyz "xyz</p>
+<p ><font color=blue>true</font></p>
+<p> Equal? [ ] [abc]</p>
+<p ><font color=blue>false</font></p>
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="First" -->
+<A NAME="FIRST"></A>
+<!-- AppleSegDescription="Output the first element of an object." -->
+<h2> First </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>First</b> <I>word</I> <BR>
+<b>First</b> <I>list</I></P>
+<P>Output the first element of an object.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> First "xyz </p>
+<p ><font color=blue>x</font></p>
+<p> First [[23 45 56 78] purple []]</p>
+<p ><font color=blue>[23 45 56 78]</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, <A HREF="#BUTLAST">ButLast</a>, <A HREF="#COUNT">Count</a>, <A HREF="#EMPTY">Empty?</a>, <A HREF="#FIRSTPUT">FirstPut</a>, <A HREF="#ITEM">Item</a>, <A HREF="#LAST">Last</a>, <A HREF="#LASTPUT">LastPut</a>, <A HREF="#LIST">List</a>, <A HREF="#LISTP">List?</a>, <A HREF="#MEMBER">Member?</a>.<BR>&nbsp;</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="FirstPut" -->
+<A NAME="FIRSTPUT"></A>
+<A NAME="FPUT"></A>
+<!-- AppleSegDescription="insert at the start of an object" -->
+<h2> FirstPut, FPut </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FirstPut</b> <I>obj1 list</I> <BR>
+<b>FirstPut</b> <I>obj1 word</I></P>
+<P>Add <I>obj1 </I>at the start of an object.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> FirstPut "de "xyz </p>
+<p ><font color=blue>dexyz</font></p>
+<p> FirstPut "bravo [apple tango]</p>
+<p ><font color=blue>[bravo apple tango]</font></p>
+<p> FirstPut [New York] [London Paris Munich]</p>
+<p ><font color=blue>[[New York] London Paris Munich]</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, <A HREF="#BUTLAST">ButLast</a>, <A HREF="#COUNT">Count</a>, <A HREF="#EMPTY">Empty?</a>, <A HREF="#FIRST">First</a>, <A HREF="#ITEM">Item</a>, <A HREF="#LAST">Last</a>, <A HREF="#LASTPUT">LastPut</a>, <A HREF="#LIST">List</a>, <A HREF="#LISTP">List?</a>, <A HREF="#MEMBER">Member?</a>.<BR>&nbsp;</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+
+
+
+<!-- AppleSegStart="Item" -->
+<A NAME="ITEM"></A>
+<!-- AppleSegDescription="Output an element of an object" -->
+<h2>Item </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Item</b> <I>number list</I> <BR>
+<b>Item</b> <I>number word</I></P>
+<P>Outputs element <I>number </I>of an object.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> Item 3 "abcdef </p>
+<p ><font color=blue>c</font></p>
+<p> Item 2 [apple tango]</p>
+<p ><font color=blue> tango </font></p>
+<p> Item 2 [[New York] London Paris Munich]</p>
+<p ><font color=blue> London </font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, 
+<A HREF="#BUTLAST">ButLast</a>, 
+<A HREF="#COUNT">Count</a>, 
+<A HREF="#EMPTY">Empty?</a>, 
+<A HREF="#FIRST">First</a>, 
+<A HREF="#FIRSTPUT">FirstPut</a>, 
+<A HREF="#LAST">Last</a>, 
+<A HREF="#LASTPUT">LastPut</a>, 
+<A HREF="#LIST">List</a>, 
+<A HREF="#LISTP">List?</a>, 
+<A HREF="#MEMBER">Member?</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Last" -->
+<A NAME="LAST"></A>
+<!-- AppleSegDescription="Output the last element of an object" -->
+<h2>Last </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Last</b> <I>list</I> <BR>
+<b>Last</b> <I>word</I></P>
+<P>Output the last element of an object.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> Last "abcdef </p>
+<p ><font color=blue>f</font></p>
+<p> Last [apple tango]</p>
+<p ><font color=blue> tango </font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, 
+<A HREF="#BUTLAST">ButLast</a>, 
+<A HREF="#COUNT">Count</a>, 
+<A HREF="#EMPTY">Empty?</a>, 
+<A HREF="#FIRST">First</a>, 
+<A HREF="#FIRSTPUT">FirstPut</a>, 
+<A HREF="#ITEM">Item</a>, 
+<A HREF="#LASTPUT">LastPut</a>, 
+<A HREF="#LIST">List</a>, 
+<A HREF="#LISTP">List?</a>, 
+<A HREF="#MEMBER">Member?</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="LastPut" -->
+<A NAME="LASTPUT"></A>
+<A NAME="LPUT"></A>
+<!-- AppleSegDescription="Append an item to an object" -->
+<h2> LastPut, LPut </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>LastPut</b> <I>object list</I> <BR>
+<b>LastPut</b> <I>object word</I></P>
+<P>Output <I>object </I>appended to the end of a list or word.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> LastPut "xyz "abcdef </p>
+<p ><font color=blue> abcdefxyz </font></p>
+<p> LastPut "bravo [apple tango]</p>
+<p ><font color=blue> [apple tango bravo] </font></p>
+<p> LastPut [New York] [London Paris Munich]</p>
+<p ><font color=blue>[London Paris Munich [New York]]</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, 
+<A HREF="#BUTLAST">ButLast</a>, 
+<A HREF="#COUNT">Count</a>, 
+<A HREF="#EMPTY">Empty?</a>, 
+<A HREF="#FIRST">First</a>, 
+<A HREF="#FIRSTPUT">FirstPut</a>, 
+<A HREF="#ITEM">Item</a>, 
+<A HREF="#LAST">Last</a>, 
+<A HREF="#LIST">List</a>, 
+<A HREF="#LISTP">List?</a>, 
+<A HREF="#MEMBER">Member?</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="List" -->
+<A NAME="LIST"></A>
+<!-- AppleSegDescription="Create a list" -->
+<h2>List </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>List</b> <I>object1 object2</I> <BR>
+<b>(List</b> <I>object1 object2...</I>)</P>
+<P>Output a list consisting of <I>object1, object2,...</I></P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> List "xyz "abcdef </p>
+<p ><font color=blue> [xyz abcdef ] </font></p>
+<p> List "bravo [apple tango]</p>
+<p ><font color=blue> [bravo [apple tango] ] </font></p>
+<p> (List "New "York "London "Paris "Munich)</p>
+<p ><font color=blue>[New York London Paris Munich ]</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, 
+<A HREF="#BUTLAST">ButLast</a>, 
+<A HREF="#COUNT">Count</a>, 
+<A HREF="#EMPTY">Empty?</a>, 
+<A HREF="#FIRST">First</a>, 
+<A HREF="#FIRSTPUT">FirstPut</a>, 
+<A HREF="#ITEM">Item</a>, 
+<A HREF="#LAST">Last</a>, 
+<A HREF="#LASTPUT">LastPut</a>, 
+<A HREF="#LISTP">List?</a>, 
+<A HREF="#MEMBER">Member?</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="List?" -->
+<A NAME="LISTP"></A>
+<A NAME="LIST?"></A>
+<!-- AppleSegDescription="xxxxxxxxxxxxxxx" -->
+<h2>List?, Listp</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>List?</b> <I>object</I>
+<P>Output <B>true</B> if <I>object</I> is a list.
+<table><tr><td width=30><td><font face="sans-serif">
+<p> List? "xyz</p>
+<p ><font color=blue>false</font></p>
+<p> List? [apple tango]</p>
+<p ><font color=blue> true</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, 
+<A HREF="#BUTLAST">ButLast</a>, 
+<A HREF="#COUNT">Count</a>, 
+<A HREF="#EMPTY">Empty?</a>, 
+<A HREF="#FIRST">First</a>, 
+<A HREF="#FIRSTPUT">FirstPut</a>, 
+<A HREF="#ITEM">Item</a>, 
+<A HREF="#LAST">Last</a>, 
+<A HREF="#LASTPUT">LastPut</a>, 
+<A HREF="#LIST">List</a>, 
+<A HREF="#MEMBER">Member?</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="LowerCase" -->
+<A NAME="LOWERCASE"></A>
+<!-- AppleSegDescription="Convert an object to lower case" -->
+<h2> LowerCase </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>LowerCase</b> <I>list</I></P>
+<P><b>LowerCase</b> <I>word</I></P>
+<P>Output <I>list </I>or <I>word </I>with all upper case characters converted to lower case.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> LowerCase  "ABC</p>
+<p ><font color=blue>abc</font></p>
+<p> LowerCase   [aHGF   8768 HHHH a]</p>
+<p ><font color=blue>[ahgf   8768 hhhh a]</font></p>
+</table>
+<p>See also <A HREF="#UPPERCASE">UpperCase</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Member?" -->
+<A NAME="MEMBER"></A>
+<A NAME="MEMBERP"></A>
+<A NAME="MEMBER?"></A>
+<!-- AppleSegDescription="Test membership of an object" -->
+<h2>Member?</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Member</b> <I>object1 object2</I></P>
+<P>Output true if <I>object1 </I>is a member of <I>object2.</I></P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> Member?  "y "xyz</p>
+<p ><font color=blue>true</font></p>
+<p> Member?  "s "xyz</p>
+<p ><font color=blue>false</font></p>
+<p> Member? "tango [apple tango lima]</p>
+<p ><font color=blue> true</font></p>
+<p> Member? "tango [apple [tango lima]]</p>
+<p ><font color=blue> false </font></p>
+<p> Member? [tango  lima] [apple [tango lima]]</p>
+<p ><font color=blue> true</font></p>
+</table>
+<p>See also <A HREF="#BUTFIRST">ButFirst</a>, 
+<A HREF="#BUTLAST">ButLast</a>, 
+<A HREF="#COUNT">Count</a>, 
+<A HREF="#EMPTY">Empty?</a>, 
+<A HREF="#FIRST">First</a>, 
+<A HREF="#FIRSTPUT">FirstPut</a>, 
+<A HREF="#ITEM">Item</a>, 
+<A HREF="#LAST">Last</a>, 
+<A HREF="#LASTPUT">LastPut</a>, 
+<A HREF="#LIST">List</a>, 
+<A HREF="#LISTP">List?</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="ReadChar" -->
+<A NAME="READCHAR"></A>
+<A NAME="RC"></A>
+<!-- AppleSegDescription="Read a Character" -->
+<h2>ReadChar</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>ReadChar waits for a character to be typed in the main (text) window, then outputs the character as a word. The insertion
+point becomes a blue colour while it's waiting for input.</P>
+<p>See also 
+<A HREF="#READCHARS"> ReadChars,</a> 
+<A HREF="#READLIST"> ReadList,</a> 
+<A HREF="#READWORD"> ReadWord</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="ReadChars" -->
+<A NAME="READCHARS"></A>
+<A NAME="RCS"></A>
+<!-- AppleSegDescription="Read characters" -->
+<h2>ReadChars, RCS</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b> ReadChars </b> <I>number</I></P>
+<P>Output a word containing <i>number</i> characters read from the keyboard. The insertion
+point becomes a blue colour while it's waiting for input.</P>
+<p>See also 
+<A HREF="#READCHAR"> ReadChar,</a> 
+<A HREF="#READLIST"> ReadList,</a> 
+<A HREF="#READWORD"> ReadWord</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="ReadList" -->
+<A NAME="READLIST"></A>
+<A NAME="RL"></A>
+<!-- AppleSegDescription="Read a line of characters into a list" -->
+<h2>ReadList, RL</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>ReadList accepts characters typed in the main (text) window until carriage return is pressed, then outputs the characters as a list. The insertion
+point becomes a blue colour while it's waiting for input.</P>
+<p>See also 
+<A HREF="#READCHAR"> ReadChar,</a> 
+<A HREF="#READCHARS"> ReadChars,</a> 
+<A HREF="#READWORD"> ReadWord</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="ReadWord" -->
+<A NAME="READWORD"></A>
+<A NAME="RW"></A>
+<!-- AppleSegDescription="Read a line of characters into a word" -->
+<h2>ReadWord</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>ReadWord accepts characters typed in the main (text) window until carriage return is pressed, then outputs the characters as a word. The insertion
+point becomes a blue colour while it's waiting for input.</P>
+<p>See also 
+<A HREF="#READCHAR"> ReadChar,</a> 
+<A HREF="#READCHARS"> ReadChars,</a> 
+<A HREF="#READLIST"> ReadList</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Sentence" -->
+<A NAME="SENTENCE"></A>
+<A NAME="SE"></A>
+<!-- AppleSegDescription="Create a sentence" -->
+<h2> Sentence, SE </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Sentence</b> <I>object1 object2</I> <BR>
+(<b>Sentence</b> <I>object1 object2...</I>)</P>
+<P>Output a list containing the input objects. Strips the outermost brackets of any object which is a list.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Sentence "abc "def</p>
+<p ><font color=blue>[abc def]</font></p>
+<p>Sentence "abc [def]</p>
+<p ><font color=blue>[abc def]</font></p>
+<p>Sentence "abc [[def]]</p>
+<p ><font color=blue>[abc [def]]</font></p>
+</table>
+<p>See also 
+<A HREF="#LIST">List</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="UpperCase" -->
+<A NAME="UPPERCASE"></A>
+<!-- AppleSegDescription="Convert an object to upper case" -->
+<h2> UpperCase </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>UpperCase </b> <I>list</I></P>
+<P><b>UpperCase </b> <I>word</I></P>
+<P>Output <I>list </I>or <I>word </I>with all lower case characters converted to upper case.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p> UpperCase  "abc</p>
+<p ><font color=blue>ABC</font></p>
+<p> UpperCase   [h4j5jlllABAB 8]</p>
+<p ><font color=blue>[H4J5JLLLABAB 8]</font></p>
+</table>
+<p>See also <A HREF="#LOWERCASE">LowerCase</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="Word" -->
+<A NAME="WORD"></A>
+<!-- AppleSegDescription="Output a word" -->
+<h2> Word </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Word</b> <I>word1 word2</I> <BR>
+(<b>Word</b> <I>word1 word2...</I>)</P>
+<P>Output a word consisting of the input words concatenated.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Word "abc "def</p>
+<p ><font color=blue>abcdef</font></p>
+<p>(Word "abc "def "ghi)</p>
+<p ><font color=blue>abcdefghi</font></p>
+</table>
+<p>See also 
+<A HREF="#WORDP">Word?</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+
+<!-- AppleSegStart="Word?" -->
+<A NAME="WORDP"></A>
+<A NAME="WORD?"></A>
+<!-- AppleSegDescription="test if an object is a word" -->
+<h2>Word?</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Word?</b> <I>object</I></P>
+<P>Output <B>true</B> if <I>object </I>is a word.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Word? "abc</p>
+<p ><font color=blue>true</font></p>
+<p>Word? [a b c]</p>
+<p ><font color=blue>false</font></p>
+</table>
+<p>See also 
+<A HREF="#WORD">Word</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+
+</font>
+</BODY>
+</HTML>

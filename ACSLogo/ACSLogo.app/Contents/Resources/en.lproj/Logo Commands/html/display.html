@@ -1,0 +1,73 @@
+<HTML>  
+<HEAD>
+  <TITLE>Display Commands</TITLE>
+</HEAD>
+<body>
+<font face="Geneva,Helvetica,Arial">
+<!-- AppleSegStart="Print" -->
+<A NAME="PRINT"></A>
+<A NAME="PR"></A>
+<!-- AppleSegDescription="Print an object to the text window" -->
+<H2> Print, Pr </H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Print</b> <I>object</I> <BR>
+(<b>Print</b> <I>object1...</I>)</P>
+<P>Prints out one or more objects. If an object is a list, the
+outermost brackets are not printed. Writes a new line afterwards.</P>
+<p >Print "abc</p>
+<p ><font color=blue>abc</font></p>
+<p >print [the end of the line]</p>
+<p ><font color=blue>the end of the line</font></p>
+<p >(print "abc "def "ghi)</p>
+<p ><font color=blue>abc def ghi</font></p>
+<p>See also 
+<A HREF="#SHOW">Show</a>, 
+<A HREF="graphiccomm.html#GRAPHICSTYPE">GraphicsType</a>,
+<A HREF="#TYPE">Type</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Show" -->
+<A NAME="SHOW"></A>
+<!-- AppleSegDescription="Print an object to the text window" -->
+<H2>Show</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Show</b> <I>object</I></P>
+<P>Print <I>object</I>, then start a new line. if <i>object</i> is a list, 
+the outermost brackets are printed.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Show [the end of the line]</p>
+<p ><font color=blue>[the end of the line]</font></p>
+<p >(Show "abc "def "ghi)</p>
+<p ><font color=blue>abc def ghi</font></p>
+</table>
+<p>See also 
+<A HREF="#PRINT">Print</a>, 
+<A HREF="graphiccomm.html#GRAPHICSTYPE">GraphicsType</a>,
+<A HREF="#TYPE">Type</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="Type" -->
+<A NAME="TYPE"></A>
+<!-- AppleSegDescription="Print objects without newline" -->
+<H2>Type</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Type</b> <I>object</I> <BR>
+(<b>Type</b> <I>object1 object2...</I>)</P>
+<P>Print an object or objects - do not start a new line. Remove outer brackets for a list.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Type [the end of the line]</p>
+<p ><font color=blue>the end of the line</font></p>
+</table>
+<p>See also 
+<A HREF="#PRINT">Print</a>, 
+<A HREF="graphiccomm.html#GRAPHICSTYPE">GraphicsType</a>,
+<A HREF="#SHOW">Show</a>.
+</table>
+<!-- AppleSegEnd -->
+
+</font>
+</BODY>
+</HTML>

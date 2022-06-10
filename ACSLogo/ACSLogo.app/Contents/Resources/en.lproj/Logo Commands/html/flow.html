@@ -1,0 +1,133 @@
+<HTML>  
+<HEAD>
+  <TITLE>Flow and Control Commands</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<font face="Geneva,Helvetica,Arial">
+
+<!-- AppleSegStart="Catch" -->
+<A NAME="CATCH"></A>
+<!-- AppleSegDescription="Catch a Throw." -->
+<h2> Catch </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Catch</b> <I>name </I>[<I>statements</I>]</P>
+<P>Catch executes statements <i>statements</i>. If within the scope of these statements (i.e. in the statements or a procedure called by the statements), a
+condition called <i>name</i> is thrown using the <A HREF="#THROW">Throw</a> statement, condition passes immediately back to the statement following the catch statement.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Make "i 1</p>
+<p>Catch "bod [repeat 100 [print :i make "i :i + 1 if :i > 3 [throw "bod] [ ]] print [got to end]] print "done</p>
+<p><font color=blue>1</font></p>
+<p><font color=blue>2</font></p>
+<p><font color=blue>3</font></p>
+<p><font color=blue>done</font></p>
+</table>
+<p>See also 
+<A HREF="#THROW">Throw</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="If" -->
+<A NAME="IF"></A>
+<!-- AppleSegDescription="The If statement." -->
+<h2> If </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>If</b> <I>condition </I>[<I>true-statements</I>] [<I>false-statements</I>]</P>
+<P>If condition <I>condition</I> is true, execute <I>true-statements</I>,
+otherwise execute <I>false-statements</I>. Both of the lists must be present, although
+either can be empty.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >ClearScreen</p>
+<p >Right 45</p>
+<p >If Heading > 180 [print [pointing left]] [print [pointing right]]</p>
+<p><font color=blue>pointing right</font></p>
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Output" -->
+<A NAME="OUTPUT"></A>
+<A NAME="OP"></A>
+<!-- AppleSegDescription="Output result from a procedure." -->
+<h2> Output, Op</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Output</b> <I>object</I></P>
+<P>Return <I>object</I> as the output of a procedure.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Repeat" -->
+<A NAME="REPEAT"></A>
+<!-- AppleSegDescription="Repeat a list of statements." -->
+<h2> Repeat</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Repeat</b> <I>number </I>[<I>statements</I>]</P>
+<P>Run statements <I>statements</I> <I>number</I> times.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Repeat 5 [Print Random 100]</p>
+<p><font color=blue>52</font></p>
+<p><font color=blue>85</font></p>
+<p><font color=blue>86</font></p>
+<p><font color=blue>47</font></p>
+<p><font color=blue>8</font></p>
+</table>
+<p>See also 
+<A HREF="#RUN">Run</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="Run" -->
+<A NAME="RUN"></A>
+<!-- AppleSegDescription="Run." -->
+<h2>Run</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Run <I>list</I></P>
+<P>Execute statements in <I>list</I>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Run [Abs -6]</p>
+<p><font color=blue>6</font></p>
+<p >Right 45 Forward 100</p>
+<p >Make "mylist Firstput "Sum Position</p>
+<p >:mylist</p>
+<p><font color=blue>[Sum 70.7106857299805  70.7106628417969]</font></p>
+<p >Run :mylist</p>
+<p><font color=blue>141.421348571777</font></p>
+</table>
+<p>See also 
+<A HREF="#REPEAT">Repeat</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="Stop" -->
+<A NAME="STOP"></A>
+<!-- AppleSegDescription="Stop." -->
+<h2> Stop</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Return from a procedure without returning a result.</P>
+<p>See also <A HREF="#OUTPUT">Output</a>.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Throw" -->
+<A NAME="THROW"></A>
+<!-- AppleSegDescription="Throw a condition." -->
+<h2> Throw </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Throw</b> <I>name </I></P>
+<P>The Purpose of Throw is to pass control back to an encompassing <A HREF="#CATCH">Catch</a> statement.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Make "i 1</p>
+<p>Catch "bod [repeat 100 [print :i make "i :i + 1 if :i > 3 [throw "bod] [ ]] print [got to end]] print "done</p>
+<p><font color=blue>1</font></p>
+<p><font color=blue>2</font></p>
+<p><font color=blue>3</font></p>
+<p><font color=blue>done</font></p>
+</table>
+<p>See also 
+<A HREF="#CATCH">Catch</a>.
+</table>
+<!-- AppleSegEnd -->
+</font>
+</BODY>
+</HTML>

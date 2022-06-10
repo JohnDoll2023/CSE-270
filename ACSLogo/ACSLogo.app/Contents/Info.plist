@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACSLogoHelpFiles</key>
+	<array>
+		<dict>
+			<key>Graphic Commands</key>
+			<string>graphiccomm.html</string>
+		</dict>
+		<dict>
+			<key>Maths Operators and Functions</key>
+			<string>maths.html</string>
+		</dict>
+		<dict>
+			<key>Display Commands</key>
+			<string>display.html</string>
+		</dict>
+		<dict>
+			<key>Variables and Definitions</key>
+			<string>vardef.html</string>
+		</dict>
+		<dict>
+			<key>Flow Commands</key>
+			<string>flow.html</string>
+		</dict>
+		<dict>
+			<key>Word and List Commands</key>
+			<string>wordlistcomm.html</string>
+		</dict>
+		<dict>
+			<key>File Commands</key>
+			<string>file.html</string>
+		</dict>
+		<dict>
+			<key>Miscellaneous Commands</key>
+			<string>misc.html</string>
+		</dict>
+	</array>
+	<key>BuildMachineOSBuild</key>
+	<string>18G4032</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>acsl</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>acslogodoc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>ACSLogo Document</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>ACSl</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>NSDocumentClass</key>
+			<string>LogoDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>tiff</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>NSTIFFPboardType</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>tiff</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>txt</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Text</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>TEXT</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>ACSLogo</string>
+	<key>CFBundleGetInfoString</key>
+	<string>ACSLogo version 1.6, Alan C Smith.</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>Logo Commands</string>
+	<key>CFBundleHelpBookName</key>
+	<string>ACSLogo Help</string>
+	<key>CFBundleIconFile</key>
+	<string>acslogo.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.acsmith.acslogo</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>ACSLogo</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>ACSLogo version 1.6.0.2</string>
+	<key>CFBundleSignature</key>
+	<string>acsL</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1.6.0.2</string>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>11C504</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>19B90</string>
+	<key>DTSDKName</key>
+	<string>macosx10.15</string>
+	<key>DTXcode</key>
+	<string>1130</string>
+	<key>DTXcodeBuild</key>
+	<string>11C504</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.9</string>
+	<key>NSAppleScriptEnabled</key>
+	<string>YES</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Alan C Smith 2019</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>OSAScriptingDefinition</key>
+	<string>ACSLogo.sdef</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>ACSLogo document</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.alancsmith.acsl</string>
+			<key>UTTypeReferenceURL</key>
+			<string>http://www.alancsmith.co.uk/</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.ostype</key>
+				<string>ACSL</string>
+				<key>public.filename-extension</key>
+				<array>
+					<string>acsl</string>
+					<string>ACSL</string>
+				</array>
+				<key>public.mime-type</key>
+				<string>image/acsl</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

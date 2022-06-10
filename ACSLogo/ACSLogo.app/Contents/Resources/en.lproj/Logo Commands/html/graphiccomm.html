@@ -1,0 +1,1452 @@
+<HTML>  
+<HEAD>
+  <TITLE>Graphic Commands</TITLE>
+<meta http-equiv=Content-Type content="text/html; charset=macintosh">
+</HEAD>
+<body>
+<font face="Geneva,Helvetica,Arial">
+<!-- AppleSegStart="Arc" -->
+<A NAME="ARC"></A>
+<!-- AppleSegDescription="Drawing an Arc." -->
+<h2>Arc</h2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Arc</b> <I>angle</I> <I>radius</i></P>
+<P>Draws an arc of radius <I>radius</I>, centred on the current turtle position and starting at the current heading,
+sweeping clockwise through angle <i>angle</i>. Draws a line if the pen is down.</P>
+<p>The turtle heading and position do not change.</p>
+<p>Example:
+<table><tr><td width=30><td width=180><font face="sans-serif">
+<p>Left 45<br>Arc 90 100</p>
+</font>
+<td><img src="arc.tiff">
+</table><p>
+See also
+<A HREF="#PENUP">PenUp</a>, <A HREF="#PENDOWN">PenDown</a><BR>&nbsp;</P>
+</font></table>
+
+<!-- AppleSegStart="Back" -->
+<A NAME="BACK"></A>
+<A NAME="BK"></A>
+<!-- AppleSegDescription="Making the turtle move backwards." -->
+<h2>Back, BK</h2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Back</b> <I>distance</I></P>
+<P>Move the turtle backwards <I>distance</I> pixels. Draws a line if the pen is down.</P>
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Back 100</p>
+</font></table>
+<p>Opposite of <A HREF="#FORWARD">Forward</a>. See also
+<A HREF="#PENUP">PenUp</a>, <A HREF="#PENDOWN">PenDown</a><BR>&nbsp;</P>
+</font></table>
+
+<!-- AppleSegStart="Background" -->
+<A NAME="BACKGROUND"></A>
+<A NAME="BG"></A>
+<!-- AppleSegDescription="Making the turtle move backwards." -->
+<H2>Background, Bg</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output the number of the background colour. This is the colour used to
+fill the screen when <A HREF="#CLEARSCREEN">ClearScreen</A> is
+called. At startup, the background colour is set to zero.</P>
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Background </p>
+<p><font color=blue>0</font></p>
+</font></table>
+<p>See also <A HREF="#SETBACKGROUND">SetBackground</a>, <A HREF="#CLEAN">Clean</a>, <A HREF="#CLEARSCREEN">ClearScreen</a>, 
+<A HREF="#RGB">RGB</a>, <A HREF="#SETPENCOLOR">SetPenColor</a>.<BR>&nbsp;</P>
+</font></table>
+
+<!-- AppleSegStart="Button?" -->
+<A NAME="BUTTONP"></A>
+<A NAME="BUTTON?"></A>
+<A NAME="BUTTON"></A>
+<!-- AppleSegDescription="Output whether the left mouse button is down." -->
+<H2>Button?, ButtonP</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Outputs <i>true</i> if the left mouse button is down in the Graphics window, otherwise <i>false</i>.</P>
+<p>See also <A HREF="#MOUSE">Mouse</a>, <A HREF="#GetMouseMoved">GetMouseMoved</a>, <A HREF="#GETMOUSECLICK">GetMouseClick</a>, 
+<A HREF="#GETMOUSECHANGE">GetMouseChange</a></P>
+</font></table>
+
+	<!-- AppleSegStart="CanvasSize" -->
+	<A NAME="CANVASSIZE"></A>
+	<!-- AppleSegDescription="Output size of the drawing area." -->
+	<H2>CanvasSize</H2>
+	<!-- AppleSegEnd -->
+	<table><tr><td width=30><td><font face="sans-serif">
+		<P><b>CanvasSize</b></P>
+		<P>Output the width and height of the canvas, or drawing area, as a list.
+		</P>
+		<table><tr><td width=30><td><font face="sans-serif">
+			<p >CanvasSize</p>
+			<p ><font color=blue>[800 800]</font></p>
+		</font></table>
+		<p>See also 
+		<A HREF="#SETCANVASSIZE">SetCanvasSize</a>.
+	</font></table>
+	
+<!-- AppleSegStart="Clean" -->
+<A NAME="CLEAN"></A>
+<!-- AppleSegDescription="Clear the graphics screen." -->
+<H2> Clean</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Clear the graphics screen without affecting the turtle. The graphics screen is filled with the current background pen colour.</P>
+<p>See also <A HREF="#CLEARSCREEN">ClearScreen</a>, 
+<A HREF="#SETBACKGROUND">SetBackground</a>, 
+<A HREF="#BACKGROUND">Background</a>,
+<A HREF="#RGB">RGB</a>, 
+<A HREF="#SETPENCOLOR">SetPenColor</a>.<BR>&nbsp;</P>
+</font></table>
+
+<!-- AppleSegStart="ClearScreen" -->
+<A NAME="CLEARSCREEN"></A>
+<A NAME="CS"></A>
+<!-- AppleSegDescription="Clear the graphics screen and set the turtle to its home position." -->
+<H2>ClearScreen, CS</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Clear the graphics screen and set the turtle to its home position. The same as doing <A HREF="#CLEAN">Clean</a> followed by <A HREF="#HOME">Home</a>.</P>
+<p>See also <A HREF="#CLEAN">Clean</a>, 
+<A HREF="#SETBACKGROUND">SetBackground</a>, 
+<A HREF="#BACKGROUND">Background</a>,
+<A HREF="#RGB">RGB</a>, 
+<A HREF="#HOME">Home</a>, 
+<A HREF="#SETPENCOLOR">SetPenColor</a>.<BR>&nbsp;</P>
+</font></table>
+
+	<!-- AppleSegStart="ColourAtPoint" -->
+	<A NAME="COLOURATPOINT"></A>
+	<!-- AppleSegDescription="Output size of the drawing area." -->
+	<H2>ColourAtPoint, ColorAtPoint</H2>
+	<!-- AppleSegEnd -->
+	<table><tr><td width=30><td><font face="sans-serif">
+		<P><b>ColourAtPoint</b> [<I>x y</I>]</P>
+		<P>Output the RGB values at position x,y, as a list.
+		</P>
+		<table><tr><td width=30><td><font face="sans-serif">
+			<p >SetPenWidth 20</p>
+			<p >SetPenColour 2</p>
+			<p >Forward 20</p>
+			<p >ColourAtPoint [0 10]</p>
+			<p ><font color=blue>[1 0 0]</font></p>
+		</font></table>
+		<p>See also 
+		<A HREF="#DOT">Dot</a>,
+	</font></table>
+
+	<!-- AppleSegStart="CurrentPath" -->
+<A NAME="CURRENTPATH"></A>
+<!-- AppleSegDescription="Return a list representing the current path." -->
+<H2> CurrentPath </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>CurrentPath</b></P>
+<P>Returns a list representing the current path. This list consists of a number of sub-lists. 
+Each sub-list consists of a command and its parameters. The command may be <i>moveto</i>, <i>lineto</i>, 
+<i>curveto</i>, or <i>close</i>.
+<p>The list may be used as input to <A HREF="#FillPath">FillPath</a> or <A HREF="#StrokePath">StrokePath</a>.
+<p>CurrentPath can be used to save and examine the drawing commands used to draw text.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Forward 100<br>
+Right 90<br>
+Forward 50<br>
+CurrentPath
+<p><font color=blue>[[moveto 0 0][lineto 0 100][lineto 50 100]]</font></p>
+</font></table>
+
+</P>
+<p>See also <A HREF="#FILLPATH">FillPath</a>, <A HREF="#FILLCURRENTPATH">FillCurrentPath</a>, <A HREF="#PATHLENGTH">PathLength</a>,
+<A HREF="#STROKEPATH">StrokePath</a>, <A HREF="#STROKECURRENTPATH">StrokeCurrentPath</a>, <A HREF="#PATHBOUNDS">PathBounds</a>,
+<A HREF="#SETCLIPPATH">SetClipPath</a>.
+</font></table>
+
+<!-- AppleSegStart="Dot" -->
+<A NAME="DOT"></A>
+<!-- AppleSegDescription="Put a dot on the screen." -->
+<H2> Dot</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Dot</b> [<I>x y</I>]</P>
+<P>Put a dot of the current colour at position <I>x y </I>on the screen. Note that positive y-values go up the screen.</P>
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p> Dot [100 80] </p>
+</font></table>
+	<p>See also 
+	<A HREF="#COLOURATPOINT">ColourAtPoint</a>,
+</font></table>
+
+<!-- AppleSegStart="DrawImage" -->
+<A NAME="DRAWIMAGE"></A>
+<!-- AppleSegDescription="Draw an image from a file." -->
+<H2>DrawImage</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>DrawImage</b> <i>file-path</i> [<I>width height</I>]</P>
+<P>Draw an image from file <i>file-path</i> with width <i>width</i> and height <i>height</i>.</P>
+<p>The <i>file-path</i> parameter can be either a fully qualified path in the file system, or partially qualified relative
+to the current working directory. See <A HREF="file.html/#CD">CD</a> and <A HREF="file.html/#PWD">PWD</a> for more information.
+<i>file-path</i> should generally be enclosed in list brackets, so that slashes and possibly other characters which are part of the 
+file-path are not interpreted as operators by Logo - otherwise, it can be a string.</p>
+<p>The second parameter is a list of two numbers, width and height, either or both of which can be absent. If both are present, the 
+image is drawn with the width and height specified. If both are absent, the image is drawn at its native size. If one is absent,
+the other is inferred from the one specified and the aspect ratio of the image.</p>
+<p>The image is drawn at the current turtle position, rotated by the turtle heading.</p>
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>CD [~/Pictures]</p>
+<p>DrawImage [Italia2004/img_0090.jpg] [100 ]</p>
+</font></table>
+</font></table>
+
+<!-- AppleSegStart="Fill" -->
+<A NAME="FILL"></A>
+<!-- AppleSegDescription="Fill an area." -->
+<H2> Fill </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Fills an area with the current pen colour, starting from the current turtle position until
+a border of the current pen colour is hit. This may not work correctly if the "smooth
+lines" option is chosen (anti-aliasing) as the OSX graphics system draws
+lines with approximations to the current
+pen colour to get rid of jagged edges.</P>
+<p>See also <A HREF="#FILLIN">FillIn </a>, 
+<A HREF="#FILLPATH">FillPath </a>, 
+</font></table>
+
+<!-- AppleSegStart="FillIn" -->
+<A NAME="FILLIN"></A>
+<!-- AppleSegDescription="Fill an area." -->
+<H2> FillIn </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Fills an area with the current pen colour, starting from the current turtle position until
+a different coloured pixel from the start pixel is hit.</P>
+<p>See also <A HREF="#FILL">Fill</a>, 
+<A HREF="#FILLPATH">FillPath </a>, 
+</font></table>
+
+<!-- AppleSegStart="FillCurrentPath" -->
+<A NAME="FILLCURRENTPATH"></A>
+<!-- AppleSegDescription="Fill the current path." -->
+<H2> FillCurrentPath </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Fills an area bounded by the current path with the current pen colour. The current path is the sequence of lines which have been generated by movements of the turtle. A <A HREF="#PENUP">PenUp</a> command or a command which moves the turtle without drawing a line,
+such as <A HREF="#CLEAN">Clean</a> or <A HREF="#CLEARSCREEN">ClearScreen</a> empties the path.
+</P>
+<p>See also <A HREF="#FILL">Fill </a>, 
+<A HREF="#FILLIN">FillIn</a>, <A HREF="#FILLPATH">FillPath</a>, <A HREF="#PATHLENGTH">PathLength</a>,
+<A HREF="#STROKEPATH">StrokePath</a>, <A HREF="#STROKECURRENTPATH">StrokeCurrentPath</a>, <A HREF="#CURRENTPATH">CurrentPath</a>.
+</font></table>
+
+<!-- AppleSegStart="FillPath" -->
+<A NAME="FILLPATH"></A>
+<!-- AppleSegDescription="Fill a path." -->
+<H2> FillPath </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FillPath</b> <I>path-command-list</I></P>
+<P>Fills an area specified by <i>path-command-list</i>. This list consists of a number of sub-lists. 
+Each sub-list consists of a command and its parameters. The command may be <i>moveto</i>, <i>lineto</i>, <i>curveto</i>, or <i>close</i>.
+<p>The best way to create the list is to do some drawing, and then save the path into a list using <A HREF="#CurrentPath">CurrentPath</a>.
+
+</P>
+<p>See also <A HREF="#FILL">Fill </a>, 
+<A HREF="#FILLIN">FillIn</a>,  <A HREF="#FILLCURRENTPATH">FillCurrentPath</a>, <A HREF="#PATHLENGTH">PathLength</a>,
+<A HREF="#STROKEPATH">StrokePath</a>, <A HREF="#STROKECURRENTPATH">StrokeCurrentPath</a>, <A HREF="#PATHBOUNDS">PathBounds</a>
+</font></table>
+
+<!-- AppleSegStart="FontFace" -->
+<A NAME="FONTFACE"></A>
+<A NAME="FONT"></A>
+<!-- AppleSegDescription="Return the name of the current font." -->
+<H2>FontFace, Font</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FontFace</b></P>
+<P>Returns the name of the current font as a list. This is the name of the font as 
+known to the operating system, and consists of the font family name plus any attributes.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Fontface<br>
+<p><font color=blue>[Helvetica]</font></p>
+SetFontTraits [bold]<br>
+FontFace<br>
+<p><font color=blue>[Helvetica-Bold]</font></p>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFAMILY">FontFamily</a>,
+<A HREF="#FONTFAMILIES">FontFamilies</a>, <A HREF="#FONTFACES">FontFaces</a>, <A HREF="#SETFONTFACE">SetFontFace</a>, 
+<A HREF="#SETFONTFAMILY">SetFontFamily</a>, <A HREF="#FONTTRAITS">FontTraits</a></P>
+</font></table>
+
+<!-- AppleSegStart="FontFaces" -->
+<A NAME="FONTFACES"></A>
+<A NAME="FONTS"></A>
+<!-- AppleSegDescription="Return the names of all available fonts." -->
+<H2>FontFaces, Fonts</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FontFaces, Fonts</b></P>
+<P>Returns the name of all available fonts as a list of lists.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Fontfaces<br>
+<p><font color=blue>[[LiSungLight][Bodoni-BoldItalic][ACaslonPro-Regular][CalistoMT-<br>
+Italic][LubalinGraph-Demi][TimesCYItalic][AGaramondPro-<br>
+Italic][FootlightMTLight][LucidaSans-Italic][DFLeiSho-SB-MP-RKSJ-<br>
+H][HiraMaruPro-W4][ArialMT][CapitalsRegular][HYSMyeongJoStd-Medium-<br>
+Acro][AGaramondPro-Regular][BaskOldFace][BookmanOldStyle-<br>
+Bold][CenturyGothic-Bold][Baskerville-BoldItalic][Mistral][AntiqueOlive-<br>
+Compact][Baskerville-Italic][ACaslonPro-Semibold][SIL-Kai-Reg-Jian][KozMinStd-<br>
+Heavy][Marigold][KinoMT]...</font></p>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFAMILY">FontFamily</a>,
+<A HREF="#FONTFAMILIES">FontFamilies</a>, <A HREF="#FONTFACE">FontFace</a>, <A HREF="#SETFONTFACE">SetFontFace</a>, 
+<A HREF="#SETFONTFAMILY">SetFontFamily</a>, <A HREF="#FONTTRAITS">FontTraits</a></P>
+</font></table>
+
+<!-- AppleSegStart="FontFamilies" -->
+<A NAME="FONTFAMILIES"></A>
+<!-- AppleSegDescription="Return the names of all available font families." -->
+<H2>FontFamilies</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FontFamilies</b></P>
+<P>Returns the names of all available font families as a list of lists. 
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>FontFamilies<br>
+<p><font color=blue>[[Gujarati MT][Footlight MT Light][Andale Mono][Albertus MT][Gurmukhi MT][Didot][Gloucester MT Extra 
+Condensed][Geneva CY][Matura MT Script Capitals][Monaco CY][Charcoal][Corsiva Hebrew][Silom][Mistral][Courier
+ New][Garamond][Chicago][Marigold][#HeadLineA][Hiragino Kaku Gothic Std][STSong Std Acro][Beijing][DecoType Naskh]...</font></p>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFACE">FontFace</a>,
+<A HREF="#FONTFAMILY">FontFamily</a>, <A HREF="#FONTFACES">FontFaces</a>, <A HREF="#SETFONTFACE">SetFontFace</a>, 
+<A HREF="#SETFONTFAMILY">SetFontFamily</a>, <A HREF="#FONTTRAITS">FontTraits</a>, <A HREF="#SETFONTTRAITS">SetFontTraits</a></P>
+</font></table>
+
+<!-- AppleSegStart="FontFamily" -->
+<A NAME="FONTFAMILY"></A>
+<!-- AppleSegDescription="Return the name of the current font family." -->
+<H2>FontFamily</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FontFamily</b></P>
+<P>Returns the name of the current font family as a list. The font family name doesn't contain any information about the attributes
+that the current font has.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Fontfamily<br>
+<p><font color=blue>[Helvetica]</font></p>
+SetFontTraits [bold]<br>
+FontFamily<br>
+<p><font color=blue>[Helvetica]</font></p>
+setfontface [CenturyGothic-BoldItalic]<br>
+FontFamily<br>
+<p><font color=blue>[Century Gothic]</font></p>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFACE">FontFace</a>,
+<A HREF="#FONTFAMILIES">FontFamilies</a>, <A HREF="#FONTFACES">FontFaces</a>, <A HREF="#SETFONTFACE">SetFontFace</a>, 
+<A HREF="#SETFONTFAMILY">SetFontFamily</a>, <A HREF="#FONTTRAITS">FontTraits</a>, <A HREF="#SETFONTTRAITS">SetFontTraits</a></P>
+</font></table>
+
+<!-- AppleSegStart="FontTraits" -->
+<A NAME="FONTTRAITS"></A>
+<!-- AppleSegDescription="Return the traits of the current font." -->
+<H2> FontTraits </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b> FontTraits</b></P>
+<P>Returns the traits of the current font in a list. The traits are <i>bold</i> and <i>italic</i>. If neither is applicable, 
+<i>plain</i> is returned.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetFontFace [Baskerville-BoldItalic]<br>
+FontTraits <br>
+<p><font color=blue>[bold italic]</font></p>
+<p>SetFontFace [Helvetica]<br>
+FontTraits <br>
+<p><font color=blue>[plain]</font></p>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFACE">FontFace</a>,
+<A HREF="#FONTFAMILIES">FontFamilies</a>, <A HREF="#FONTFACES">FontFaces</a>, <A HREF="#SETFONTFACE">SetFontFace</a>, 
+<A HREF="#SETFONTFAMILY">SetFontFamily</a>, <A HREF="#FONTFAMILY">FontFamily</a>, <A HREF="#SETFONTTRAITS">SetFontTraits</a></P>
+</font></table>
+
+
+<!-- AppleSegStart="Forward" -->
+<A NAME="FORWARD"></A>
+<A NAME="FD"></A>
+<!-- AppleSegDescription="Move the turtle forward." -->
+<H2>Forward, FD</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Forward</b> <I>distance</I></P>
+<P>Move the turtle forward<I> distance </I>pixels. If the pen is down, a line
+is drawn.</P>
+<p>See also <A HREF="#BACK">Back</a>, <A HREF="#PENUP">PenUp</a>,
+<A HREF="#PENDOWN">PenDown</a>.
+</font></table>
+
+<!-- AppleSegStart="GetMouseChange" -->
+<A NAME="GETMOUSECHANGE"></A>
+<!-- AppleSegDescription="Wait for the left mousebutton to be pressed or the mouse to be moved and output the mouse state." -->
+<H2>GetMouseChange</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>GetMouseChange</b></P>
+<P>Wait until the left mouse button is pressed in the graphic window, or the mouse is moved with the graphic window active,
+ then output a list containing the mouse co-ordinates and whether the left mouse button is down.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>GetMouseChange</p>
+<p><font color=blue>[[-175 195]false]</font></p>
+</font></table>
+<p>See also <A HREF="#BUTTONP">Button?</a>, <A HREF="#GETMOUSEMOVED">GetMouseMoved</a>, <A HREF="#MOUSE">Mouse</a>, 
+<A HREF="#GETMOUSECLICK">GetMouseClick</a></P>
+</font></table>
+
+<!-- AppleSegStart="GetMouseClick" -->
+<A NAME="GETMOUSECLICK"></A>
+<!-- AppleSegDescription="Wait for the left mousebutton to be pressed and output the mouse co-ordinates." -->
+<H2>GetMouseClick</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>GetMouseClick</b></P>
+<P>Wait for the left mouse button to be pressed, then output the co-ordinates of the mouse as a list.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>GetMouseClick</p>
+<p><font color=blue>[20 -30]</font></p>
+</font></table>
+<p>See also <A HREF="#BUTTONP">Button?</a>, <A HREF="#GETMOUSEMOVED">GetMouseMoved</a>, <A HREF="#MOUSE">Mouse</a>, 
+<A HREF="#GETMOUSECHANGE">GetMouseChange</a></P>
+</font></table>
+
+<!-- AppleSegStart="GetMouseMoved" -->
+<A NAME="GETMOUSEMOVED"></A>
+<!-- AppleSegDescription="Wait for the mouse to be moved and then output the mouse co-ordinates." -->
+<H2>GetMouseMoved</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>GetMouseMoved</b></P>
+<P>Wait for the left mouse to be moved when the graphics window is active, then output the co-ordinates of the mouse as a list.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>GetMouseMoved</p>
+<p><font color=blue>[20 -30]</font></p>
+</font></table>
+<p>See also <A HREF="#BUTTONP">Button?</a>, <A HREF="#GETMOUSECLICK">GetMouseClick</a>, <A HREF="#MOUSE">Mouse</a>, 
+<A HREF="#GETMOUSECHANGE">GetMouseChange</a></P>
+</font></table>
+
+ 
+<!-- AppleSegStart="GraphicsType" -->
+<A NAME="GRAPHICSTYPE"></A>
+<A NAME="GRTYPE"></A>
+<!-- AppleSegDescription="Move the turtle forward." -->
+<H2> GraphicsType, GrType</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>GraphicsType</b> <I>object</I></P>
+<P>Print <I>object</I> to the graphics screen at the current pen position with the
+current pen colour. The command does not change the turtle position. It does not
+print the outermost brackets of a list.</P>
+<p>Example:
+<table><tr><td width=30><td width=180><font face="sans-serif">
+<p>grtype "start<br>setpencolour 2<br>left 45<br>grtype [the end]</p>
+</font>
+<td><img src="grtype.tiff">
+</table><p>
+<p>See also 
+<A HREF="display.html#SHOW">Show</a>, 
+<A HREF="display.html#PRINT">Print</a>,
+<A HREF="display.html#TYPE">Type</a>, <A HREF="#SETTYPESIZE">SetTypeSize</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#STROKEPATH">StrokePath</a>.
+</font></table>
+
+
+<!-- AppleSegStart="Heading" -->
+<A NAME="HEADING"></A>
+<!-- AppleSegDescription="Output the turtle heading." -->
+<H2>Heading</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output the heading angle of the turtle. This is the angle the turtle faces, and the angle it will move in if the
+<A HREF="#FORWARD">Forward</a> command is used. A heading of zero is facing straight up.The heading increases in a clockwise direction - a heading of 90 is pointing to the right, 180 is pointing straight down, 270 is pointing to the left. When the heading reaches 360, it is reset to zero.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>ClearScreen</p>
+<p>Right 45</p>
+<p>Heading</p>
+<p><font color=blue>45</font></p>
+<p>ClearScreen</p>
+<p>Left 1</p>
+<p>Heading</p>
+<p><font color=blue>359</font></p>
+</font></table>
+<p>See also 
+<A HREF="#SETHEADING">SetHeading</a>, 
+<A HREF="#RIGHT">Right</a>,
+<A HREF="#FORWARD">Forward</a>,
+<A HREF="#LEFT">Left</a>.
+</font></table>
+
+<!-- AppleSegStart="HideTurtle" -->
+<A NAME="HIDETURTLE"></A>
+<A NAME="HT"></A>
+<!-- AppleSegDescription="Hide the Turtle." -->
+<H2> HideTurtle, HT</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Hide the turtle. Its position remains the same. Drawing happens in the same way, and the
+turtle's position is affected by drawing commands in the same way as when it is showing.</P>
+<p>See also 
+<A HREF="#SHOWTURTLE">ShowTurtle</a>.
+</font></table>
+
+<!-- AppleSegStart="Home" -->
+<A NAME="HOME"></A>
+<!-- AppleSegDescription="Reset the turtle." -->
+<H2> Home</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Move the turtle to the middle of the screen (position [0 0])
+and set its heading to zero (pointing straight up).</P>
+<p>See also 
+<A HREF="#CLEARSCREEN">ClearScreen</a>, 
+<A HREF="#POSITION">Position</a>,
+<A HREF="#SETPOSITION">SetPosition</a>,
+<A HREF="#HEADING">Heading</a>,
+<A HREF="#SETHEADING">SetHeading</a>.
+</font></table>
+
+<!-- AppleSegStart="Left" -->
+<A NAME="LEFT"></A>
+<A NAME="LT"></A>
+<!-- AppleSegDescription="Rotate the turtle anti-clockwise." -->
+<H2>Left</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Left</b> <I>angle</I></P>
+<P>Rotate the turtle anti-clockwise through <I>angle</I> degrees.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Home</p>
+<p>Heading</p>
+<p><font color=blue>0</font></p>
+<p>Left 30</p>
+<p>Heading</p>
+<p><font color=blue>330</font></p>
+<p>Left 25</p>
+<p>Heading</p>
+<p><font color=blue>305</font></p>
+</font></table>
+<p>See also 
+<A HREF="#LEFT">Right</a>, 
+<A HREF="#HEADING">Heading</a>, 
+<A HREF="#SETHEADING">SetHeading</a>, 
+<A HREF="#FORWARD">Forward</a>.
+</font></table>
+
+<!-- AppleSegStart="Mouse" -->
+<A NAME="MOUSE"></A>
+<!-- AppleSegDescription="Output the co-ordinates of the mouse." -->
+<H2>Mouse</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Mouse</b></P>
+<P>Output the co-ordinates of the mouse as a list.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Mouse</p>
+<p><font color=blue>[0 30]</font></p>
+</font></table>
+<p>See also <A HREF="#BUTTONP">Button?</a>, <A HREF="#GETMOUSEMOVED">GetMouseMoved</a>, <A HREF="#GETMOUSECLICK">GetMouseClick</a>, 
+<A HREF="#GETMOUSECHANGE">GetMouseChange</a></P>
+</font></table>
+
+<!-- AppleSegStart="PathBounds" -->
+<A NAME="PATHBOUNDS"></A>
+<!-- AppleSegDescription="Output the bounding box of a path." -->
+<H2>PathBounds</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>PathBounds</b> <I>path-list</I></P>
+<P>Outputs a list representing the bounding box of <i>path-list</i> - a list of statements representing a path. 
+The output from PathBounds is in the form [<i>min-x-coord min-y-coord width height</i>].</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Forward 45 Right 90 Forward 60 Right 90 Forward 50</p>
+<p>PathBounds CurrentPath</p>
+<p><font color=blue>[0 -5 60 50]</font></p>
+</font></table>
+<p>See also <A HREF="#CURRENTPATH">CurrentPath</a>, <A HREF="#PATHLENGTH">PathLength</a>,
+<A HREF="#FILLPATH">FillPath</a>, 
+<A HREF="#STROKEPATH">StrokePath</a>.
+</font></table>
+
+<!-- AppleSegStart="PathLength" -->
+<A NAME="PATHLENGTH"></A>
+<!-- AppleSegDescription="Output the length of a path." -->
+<H2>PathLength</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>PathLength</b> <I>path-list</I></P>
+<P>Outputs the length of path <i>path-list</i> - a list of statements representing a path. 
+</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Forward 45 Right 90 Forward 60 Right 90 Forward 50</p>
+<p>PathLength CurrentPath</p>
+<p><font color=blue>155</font></p>
+</font></table>
+<p>See also <A HREF="#CURRENTPATH">CurrentPath</a>, <A HREF="#PATHBOUNDS">PathBounds</a>
+<A HREF="#FILLPATH">FillPath</a>, 
+<A HREF="#STROKEPATH">StrokePath</a>.
+</font></table>
+
+<!-- AppleSegStart="Pen" -->
+<A NAME="PEN"></A>
+<!-- AppleSegDescription="Output the pen status and colour." -->
+<H2>Pen</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Outputs a list containing the pen state and pen colour.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>PenDown</p>
+<p>SetPenColor 3</p>
+<p>Pen</p>
+<p><font color=blue>[PenDown 3]</font></p>
+</font></table>
+<p>See also <A HREF="#PENDOWN">PenDown</a>, 
+<A HREF="#PENUP">PenUp</a>, 
+<A HREF="#SETPENCOLOR">SetPenColor</a>, 
+<A HREF="#PENCOLOR">PenColor</a>.
+</font></table>
+
+<!-- AppleSegStart="PenColor" -->
+<A NAME="PENCOLOUR"></A>
+<A NAME="PENCOLOR"></A>
+<A NAME="PC"></A>
+<!-- AppleSegDescription="Output the pen colour." -->
+<H2>PenColour, PenColor, PC</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output the Pen colour number. This is the colour number which will be used when lines are drawn or fills are done. At startup, the Pen colour is set to 1.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetPenColor 3</p>
+<p>PenColor</p>
+<p><font color=blue>3</font></p>
+</font></table>
+<p>See also <A HREF="#PENDOWN">PenDown</a>, 
+<A HREF="#PENUP">PenUp</a>, 
+<A HREF="#SETPENCOLOR">SetPenColor</a>, 
+<A HREF="#PEN">Pen</a>.
+</font></table>
+
+
+<!-- AppleSegStart="PenDown" -->
+<A NAME="PENDOWN"></A>
+<A NAME="PD"></A>
+<!-- AppleSegDescription="Put the turtle into draw state." -->
+<H2>PenDown, PD</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Put the pen into draw state. If the turtle moves, it will draw
+a line.</P>
+<p>See also 
+<A HREF="#PENUP">PenUp</a>, 
+<A HREF="#PEN">PenColor</a>.
+</font></table>
+
+<!-- AppleSegStart="PenUp" -->
+<A NAME="PENUP"></A>
+<A NAME="PU"></A>
+<!-- AppleSegDescription="Put the turtle into non-draw state." -->
+<H2> PenUp, PU</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Put the pen into non-draw state.</P>
+<p>See also 
+<A HREF="#PENDOWN">PenDown</a>, 
+<A HREF="#PEN">PenColor</a>.
+</font></table>
+
+<!-- AppleSegStart="PenWidth" -->
+<A NAME="PENWIDTH"></A>
+<!-- AppleSegDescription="Output the size of the drawing pen." -->
+<H2> PenWidth</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output the size of the drawing pen. This determines the width of lines that are drawn by the turtle.
+ </P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetPenWidth 10</p>
+<p>PenWidth</p>
+<p><font color=blue>10</font></p>
+</font></table>
+<p>See also 
+<A HREF="#SETPENWIDTH">SetPenWidth</a>, 
+</font></table>
+
+<!-- AppleSegStart="Position" -->
+<A NAME="POSITION"></A>
+<A NAME="POS"></A>
+<!-- AppleSegDescription="Output the turtle's position." -->
+<H2>Position, Pos</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output a list containing the turtle's x and y co-ordinates.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Home</p>
+<p>Position</p>
+<p><font color=blue>[0 0]</font></p>
+<p>Forward 100</p>
+<p>Position</p>
+<p><font color=blue>[0 100]</font></p>
+</font></table>
+<p>See also <A HREF="#HOME">Home</a>, 
+<A HREF="#CLEARSCREEN">ClearScreen</a>, 
+<A HREF="#FORWARD">Forward</a>, 
+<A HREF="#BACK">Back</a>, 
+<A HREF="#SETPOSITION">SetPosition</a>, 
+<A HREF="#SETX">SetX</a>, 
+<A HREF="#SETY">SetY</a>.
+</font></table>
+
+<!-- AppleSegStart="RGB" -->
+<A NAME="RGB"></A>
+<!-- AppleSegDescription="Output RGB components of a colour." -->
+<H2>RGB</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>RGB</b><I>colour-number</I></P>
+<P>Output the red, green, and blue components of colour <I>colour-number</I>.
+Each component is a number between 0.0 and 1.0. Because of the way colours are held within Mac OSX, the values returned from RGB may be slightly different from those set with <A HREF="#SETRGB">SetRGB</a>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >RGB 0</p>
+<p ><font color=blue>[1 1 1]</font></p>
+<p >RGB 1</p>
+<p ><font color=blue>[0 0 0]</font></p>
+</font></table>
+<p>See also 
+<A HREF="#SETRGB">SetRGB</a>,
+<A HREF="#PENCOLOR">PenColor</a>,
+<A HREF="#SETPENCOLOR">SetPenColor</a>,
+<A HREF="#PEN">Pen</a>.
+</font></table>
+
+<!-- AppleSegStart="ReversePath" -->
+<A NAME="REVERSEPATH"></A>
+<!-- AppleSegDescription="Reverse a path." -->
+<H2>ReversePath</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>ReversePath</b> <I>path-list</I></P>
+<P>Given <i>path-list</i>, a list representing a sequence of path-drawing commands, outputs a list representing the path drawn
+backwards.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p>Forward 45 Right 90 Forward 60 Right 90 Forward 50</p>
+<p>CurrentPath</p>
+<p><font color=blue>[[moveto 0 0][lineto 0 45][lineto 60 45][lineto 60 -5]]</font></p>
+<p>ReversePath CurrentPath</p>
+<p><font color=blue>[[moveto 60 -5][lineto 60 45][lineto 0 45][lineto 0 0]]</font></p>
+</font></table>
+<p>See also <A HREF="#CURRENTPATH">CurrentPath</a>, 
+<A HREF="#PATHBOUNDS">PathBounds</a>, 
+<A HREF="#FILLPATH">FillPath</a>, 
+<A HREF="#STROKEPATH">StrokePath</a>.
+</font></table>
+
+<!-- AppleSegStart="Right" -->
+<A NAME="RIGHT"></A>
+<A NAME="RT"></A>
+<!-- AppleSegDescription="Rotate the turtle clockwise" -->
+<H2>Right, Rt</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Right</b> <I>angle</I></P>
+<P>Rotate the turtle clockwise through <I>angle</I> degrees.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Home</p>
+<p >Heading</p>
+<p ><font color=blue>0</font></p>
+<p >Right 30</p>
+<p >Heading</p>
+<p ><font color=blue>30</font></p>
+<p >Right 25</p>
+<p >Heading</p>
+<p ><font color=blue>55</font></p>
+</font></table>
+<p>See also 
+<A HREF="#LEFT">Left</a>, 
+<A HREF="#HEADING">Heading</a>, 
+<A HREF="#SETHEADING">SetHeading</a>, 
+<A HREF="#FORWARD">Forward</a>.
+</font></table>
+
+<!-- AppleSegStart="SetBackground" -->
+<A NAME="SETBACKGROUND"></A>
+<A NAME="SETBG"></A>
+<!-- AppleSegDescription="Set the background colour" -->
+<H2> SetBackground, SetBG</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetBackground</b><i> colour-number</i></P>
+<P>Set the background colour to colour-number. This colour will
+be used when <A HREF="#CLEARSCREEN">ClearScreen</A> or <A HREF="#CLEAN">Clean</A> is called.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >SetBackground 3</p>
+<p >Background </p>
+<p ><font color=blue>3</font></p>
+</font></table>
+<p>See also 
+<A HREF="#BACKGROUND">Background</a>,
+<A HREF="#SETPENCOLOR">SetPenColor</a>, 
+<A HREF="#RGB">RGB</a>, 
+<A HREF="#SETRGB">SetRGB</a>, 
+<A HREF="#CLEAN">Clean</a>, 
+<A HREF="#CLEARSCREEN">ClearScreen</a>.
+</font></table>
+
+<!-- AppleSegStart="SetCanvasSize" -->
+<A NAME="SETCANVASSIZE"></A>
+<!-- AppleSegDescription="Set the canvas size" -->
+<H2> SetCanvasSize</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetCanvasSize</b> [<i>width height</i>]</P>
+<P>Set the size of the canvas on which the turtle draws, effectively changing the size of the graphics window. The same as choosing <b>Canvas Size…</b> from the
+Format menu.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >SetCanvasSize [400 400]</p>
+</font></table>
+	<p>See also 
+	<A HREF="#CANVASSIZE">CanvasSize</a>,
+</font></table>
+
+<!-- AppleSegStart="SetClipPath" -->
+<A NAME="SETCLIPPATH"></A>
+<!-- AppleSegDescription="Set the Clipping Path" -->
+<H2> SetClipPath </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetClipPath</b> <I>path-command-list</I></P>
+<P>Confine all drawing to the path defined by <I>path-command-list</I>. The canvas will not be affected by any drawing outside this area.
+<p>The best way to create the list is to do some drawing, and then save the path into a list using 
+<A HREF="#CURRENTPATH">CurrentPath</a>. See that command for more on the subject. Setting the Clipping Path to the empty list
+resets the Clipping Path so that drawing is not clipped. <A HREF="#CLEARSCREEN">ClearScreen</a> also resets the Clipping Path.
+<p>Example:
+<table><tr><td width=30>
+<td><font face="sans-serif">
+<p>StrokePath [[moveto 0 0][lineto 0 100][lineto 200 100]]</p>
+</font>
+</table><p>
+<p>See also <A HREF="#FILLPATH">FillPath </a>, <A HREF="#FILLCURRENTPATH">FillCurrentPath </a>,  <A HREF="#PATHLENGTH">PathLength</a>,
+<A HREF="#STROKEPATH">StrokePath </a>,<A HREF="#STROKECURRENTPATH">StrokeCurrentPath </a>, <A HREF="#CURRENTPATH">CurrentPath</a>,
+ <A HREF="#PATHBOUNDS">PathBounds</a>.
+</font></table>
+
+<!-- AppleSegStart="SetFontFace" -->
+<A NAME="SETFONTFACE"></A>
+<A NAME="SETFONT"></A>
+<!-- AppleSegDescription="Set the font face of the current font." -->
+<H2> SetFontFace, SetFont</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b> SetFontFace </b> [<i>font-name</i>]</P>
+<P>Sets the current font face to <i>font-name</i>. Note that the name of the font face is enclosed in list brackets. This is in case
+the name contains unusual characters. A list of available font faces is given by the <A HREF="#FONTFACES">FontFaces</a> function. The
+name of the current font face (the one currently used for drawing) is given by the <A HREF="#FONTFACE">FontFace</a> function.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetFontFace [Baskerville-BoldItalic]<br>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFACE">FontFace</a>,
+<A HREF="#FONTFAMILIES">FontFamilies</a>, <A HREF="#FONTFACES">FontFaces</a>, <A HREF="#FONTTRAITS">FontTraits</a>, 
+<A HREF="#SETFONTFAMILY">SetFontFamily</a>, <A HREF="#FONTFAMILY">FontFamily</a>, <A HREF="#SETFONTTRAITS">SetFontTraits</a></P>
+</font></table>
+
+<!-- AppleSegStart="SetFontFamily" -->
+<A NAME="SETFONTFAMILY"></A>
+<!-- AppleSegDescription="Set the font family of the current font." -->
+<H2> SetFontFamily</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b> SetFontFamily </b> [<i>font-family-name</i>]</P>
+<P>Sets the current font family to <i> font-family-name </i>. Note that the name of the font family is enclosed in list brackets. This is in case
+the name contains spaces or other characters such as hyphens. A list of available font families is given by the <A HREF="#FONTFAMILIES">FontFamilies</a> function. The
+name of the current font family (the one currently used for drawing) is given by the <A HREF="#FONTFAMILY">FontFamily</a> function.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetFontFamily [Baskerville]<br>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFACE">FontFace</a>,
+<A HREF="#FONTFAMILIES">FontFamilies</a>, <A HREF="#FONTFACES">FontFaces</a>, <A HREF="#FONTTRAITS">FontTraits</a>, 
+<A HREF="#SETFONTFACE">SetFontFace</a>, <A HREF="#FONTFAMILY">FontFamily</a>, <A HREF="#SETFONTTRAITS">SetFontTraits</a></P>
+</font></table>
+
+<!-- AppleSegStart="SetFontTraits" -->
+<A NAME="SETFONTTRAITS"></A>
+<!-- AppleSegDescription="Set the traits of the current font." -->
+<H2> SetFontTraits</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b> SetFontTraits </b> <i>trait-list</i></P>
+<P>Sets the traits of the current font. The traits are <i>bold</i>, <i>unbold</i> (to turn off bold), <i>italic</i>, 
+<i>unitalic</i> (to turn off italic) or <i>plain</i>.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>FontFace<br>
+<p><font color=blue>[Helvetica]</font></p>
+<p>SetFontTraits [bold italic]<br>
+FontFace<br>
+<p><font color=blue>[Helvetica-BoldOblique]</font></p>
+<p>SetFontTraits [plain]<br>
+FontFace<br>
+<p><font color=blue>[Helvetica]</font></p>
+</font>
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#FONTFACE">FontFace</a>,
+<A HREF="#FONTFAMILIES">FontFamilies</a>, <A HREF="#FONTFACES">FontFaces</a>, <A HREF="#SETFONTFAMILY">SetFontFamily</a>, 
+<A HREF="#SETFONTFACE">SetFontFace</a>, <A HREF="#FONTFAMILY">FontFamily</a>, <A HREF="#SETFONTTRAITS">SetFontTraits</a></P>
+</font></table>
+
+<!-- AppleSegStart="SetFullScreen" -->
+<A NAME="SETFULLSCREEN"></A>
+<!-- AppleSegDescription="Set graphics window to/from fullscreen." -->
+<H2> SetFullScreen </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetFullScreen</b> <I>boolean-value</I></P>
+<P>Set the graphics window to fullscreen (true) or normal (false) mode.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >SetFullScreen "true</p>
+</font></table>
+</font></table>
+
+<!-- AppleSegStart="SetHeading" -->
+<A NAME="SETHEADING"></A>
+<!-- AppleSegDescription="Set the turtle's heading." -->
+<H2> SetHeading </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetHeading</b> <I>angle</I></P>
+<P>Set the turtle heading to <I>angle</I>. The heading is the direction in which the turtle is pointing. Straight up is a heading of zero. The heading increases as you go clockwise - straight down is 180.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >SetHeading 45</p>
+<p >Heading</p>
+<p ><font color=blue>45</font></p>
+</font></table>
+<p>See also 
+<A HREF="#HEADING">Heading</a>, 
+<A HREF="#LEFT">Left</a>,
+<A HREF="#RIGHT">Right</a>.
+</font></table>
+
+<!-- AppleSegStart="SetLineCap" -->
+<A NAME="SETLINECAP"></A>
+<!-- AppleSegDescription="Set the ending style for lines." -->
+<H2> SetLineCap </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetLineCap</b> <I>line-end-style</I></P>
+<P>Sets the end style for lines to <i>line-end-style</i>, which can be <i>butt</i> (the default), <i>round</i>, or <i>square</i>. The effect is only obvious with thick lines.
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetLineCap "round</p>
+<p>SetPenWidth 25</p>
+<p>Forward 100</p>
+</font>
+</table>
+<p>See also 
+<A HREF="#FORWARD">Forward</a>, 
+<A HREF="#SETPENWIDTH">SetPenWidth</a>.
+<A HREF="#SETLINEDASH">SetLineDash</a>.
+</font></table>
+
+<!-- AppleSegStart="SetLineDash" -->
+<A NAME="SETLINEDASH"></A>
+<!-- AppleSegDescription="Set the dash pattern for lines." -->
+<H2> SetLineDash </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetLineDash</b> [<I>phase drawn-dash-1 empty-dash-1... </I>]</P>
+<P>Sets the line dash pattern for drawn lines. <I>drawn-dash-1</I> is the length, in pixels, of the first, drawn, part of the line.
+ <I>empty-dash-1</I> is the length of the first blank part of the line. The pattern is then repeated. <i>phase</i> is how far into the pattern
+ the line starts drawing.
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetPenWidth 5</p>
+<p>SetLineDash [5 20 10]</p>
+<p>Right 90 Forward 100</p>
+</font>
+<td width=50>&nbsp;
+<td><img src="dash.jpg">
+</table>
+<p>See also 
+<A HREF="#FORWARD">Forward</a>, 
+<A HREF="#SETPENWIDTH">SetPenWidth</a>.
+</font></table>
+
+<!-- AppleSegStart="SetPen" -->
+<A NAME="SETPEN"></A>
+<!-- AppleSegDescription="Set the state and colour of the pen" -->
+<H2>SetPen</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetPen</b> [<I>penstate colour-number</I>]</P>
+<P>Set the state of the pen to <I>penstate</I> and its colour
+to <I>colour-number</I>. <I>Penstate&nbsp;</I> is PENUP or PENDOWN.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >SetPen [penup 7]</p>
+<p >Pen</p>
+<p ><font color=blue>[PenUp 7]</font></p>
+</font></table>
+<p>See also 
+<A HREF="#PEN">Pen</a>, 
+<A HREF="#SETPENCOLOR">SetPenColor</a>,
+<A HREF="#PENUP">PenUp</a>,
+<A HREF="#PENDOWN">PenDown</a>,
+<A HREF="#SETRGB">SetRGB</a>.
+</font></table>
+
+
+<!-- AppleSegStart="SetPenColor" -->
+<A NAME="SETPENCOLOUR"></A>
+<A NAME="SETPENCOLOR"></A>
+<A NAME="SETPC"></A>
+<!-- AppleSegDescription="Set the drawing colour" -->
+<H2>SetPenColour, SetPenColor, SetPC</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b> SetPenColor </b> <I>colour-number</I></P>
+<P>Set the drawing colour to <I>colour-number</I>. This is the colour number used to draw lines and do fills. Use <A HREF="#SETRGB">SetRGB</a> to set this colour number to a particular colour value.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >SetPenColor 3</p>
+<p >PenColor</p>
+<p ><font color=blue>3</font></p>
+</font></table>
+<p>See also 
+<A HREF="#PEN">Pen</a>, 
+<A HREF="#SETPEN">SetPen</a>,
+<A HREF="#PENCOLOR">PenColor</a>,
+<A HREF="#RGB">RGB</a>,
+<A HREF="#SETRGB">SetRGB</a>.
+</font></table>
+
+<!-- AppleSegStart="SetPenWidth" -->
+<A NAME="SETPENWIDTH"></A>
+<!-- AppleSegDescription="Set the size of the drawing pen" -->
+<H2>SetPenWidth</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b> SetPenWidth</b> <I>width</I></P>
+<P>Set the width of the pen to <i>width</i>. New lines are drawn with this width.
+ </P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >PenWidth</p>
+<p ><font color=blue>1</font></p>
+<p >SetPenWidth 10</p>
+<p >PenWidth</p>
+<p ><font color=blue>10</font></p>
+</font></table>
+<p>See also 
+<A HREF="#PENWIDTH">PenWidth</a>, 
+</font></table>
+
+<!-- AppleSegStart="SetPosition" -->
+<A NAME="SETPOSITION"></A>
+<A NAME="SETPOS"></A>
+<!-- AppleSegDescription="Set the turtle's position." -->
+<H2>SetPosition, SetPos</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetPosition</b> [<I>x y</I>]</P>
+<P>Move the turtle to position <I>x,y.</I> If the pen is down, a line is drawn in the current colour.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p > SetPosition [100 100]</p>
+<p >Position</p>
+<p ><font color=blue>[100 100]</font></p>
+</font></table>
+<p>See also 
+<A HREF="#POSITION">Position</a>, 
+<A HREF="#FORWARD">Forward</a>,
+<A HREF="#BACK">Back</a>,
+<A HREF="#HOME">Home</a>,
+<A HREF="#CLEARSCREEN">ClearScreen</a>.
+</font></table>
+
+
+<!-- AppleSegStart="SetRGB" -->
+<A NAME="SETRGB"></A>
+<!-- AppleSegDescription="Set the colour values for a colour number." -->
+<H2> SetRGB </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetRGB</b> <I>colour-number</I> [<I>red green blue</I>]</P>
+<P><b>SetRGB</b> <I>colour-number</I> [<I>red green blue opacity</I>]</P>
+<P>Set red, green, and blue components of colour <I>colour-number
+</I>to <I>red, green, blue.</I> Each component is a number between 0.0 and 1.0. 0.0 means that none of that component is present, while 1.0 means all of it is present. So, [1.0 0.0 0.0] is a bright red and [0.0 0.0 1.0] is a bright blue. Black is [0.0 0.0 0.0] and white is [1.0 1.0 1.0].</P>
+<p>If <i>opacity</i> is specified, the colour has the specified opacity - 0.0 is completely transparent, 1.0 is completely opaque.
+<table><tr><td width=30><td><font face="sans-serif">
+<p > SetRGB 3 [0.6 0.7 0.8]</p>
+<p >RGB 3</p>
+<p ><font color=blue>[0.6 0.7 0.8]</font></p>
+</font></table>
+<p>See also 
+<A HREF="#POSITION">Position</a>, 
+<A HREF="#FORWARD">Forward</a>,
+<A HREF="#BACK">Back</a>,
+<A HREF="#HOME">Home</a>,
+<A HREF="#CLEARSCREEN">ClearScreen</a>.
+</font></table>
+
+<!-- AppleSegStart="SetShadow" -->
+<A NAME="SETSHADOW"></A>
+<!-- AppleSegDescription="Set the dropshadow for all drawing." -->
+<H2> SetShadow </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetShadow</b> [<I>x-offset</I> <I>y-offset</I> <I>radius</I>]</P>
+<P><b>SetShadow</b> [<I>x-offset</I> <I>y-offset</I> <I>radius</I> <I>colour-number</I>]</P>
+<P><b>SetShadow</b> [ ]</P>
+<P>Set a dropshadow for all drawing. The shadow is offset from the drawing by <I>x-offset</I> and <I>y-offset</I> pixels. <I>Radius</I> affects the 
+amount by which the shadow is blurred. The greater the radius, the more the blur. If <i>colour-number</i> is specified, it is used to draw the shadow,
+otherwise the shadow is drawn in black with an opacity of 0.3.
+<p>To turn off shadow drawing, use SetShadow with a parameter of the empty list.
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>SetShadow [20 -20 10]<br>
+SetShadow [20 -20 10 2]<br>
+SetShadow []<br>
+</font>
+</table><p>
+	<p>See also 
+	<A HREF="#SHADOW">Shadow</a>.</p> 
+</font></table>
+
+<!-- AppleSegStart="SetTypeSize" -->
+<A NAME="SETTYPESIZE"></A>
+<!-- AppleSegDescription="Set the size for Graphics type." -->
+<H2> SetTypeSize </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetTypeSize</b> <I>type-size</I></P>
+<P>Set the size of type in the graphics window (displayed by GraphicsType).
+<p>Example:
+<table><tr><td width=30><td><font face="sans-serif">
+<p>PenUp<br>
+SetTypeSize 24<br>
+GraphicsType [24 type]<br>
+Forward 32<br>
+SetTypeSize 46<br>
+GraphicsType [46 type]</p>
+</font>
+<td><img src="settypesize.tiff">
+</table><p>
+See also
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>, <A HREF="#TEXTBOX">TextBox</a>, <A HREF="#STROKEPATH">StrokePath</a></P>
+</font></table>
+
+	<!-- AppleSegStart="SetWrap" -->
+	<A NAME="SETWRAP"></A>
+	<!-- AppleSegDescription="Set the wrap state" -->
+	<H2>SetWrap</H2>
+	<!-- AppleSegEnd -->
+	<table><tr><td width=30><td><font face="sans-serif">
+		<P><b>SetWrap</b> "true|"false</P>
+		<P>Sets the wrap state for drawing. If wrap is set to <font color=blue>true</font>, a movement of the turtle which causes it to
+		move outside the canvas causes it to come in the other side.</P>
+		<table><tr><td width=30><td><font face="sans-serif">
+			<p>Position</p>
+			<p><font color=blue>[0 0]</font></p>
+			<p>SetWrap "true</p>
+			<p>Forward 300</p>
+			<p>Position</p>
+			<p><font color=blue>[0 300]</font></p>
+			<p>Forward 300</p>
+			<p>Position</p>
+			<p><font color=blue>[0 -200]</font></p>
+		</font></table>
+		<p>See also <A HREF="#WRAP">Wrap</a>, 
+		<A HREF="#SETCANVASSIZE">SetCanvasSize</a>, 
+		<A HREF="#CANVASSIZE">CanvasSize</a>.
+	</font></table>
+
+<!-- AppleSegStart="SetX" -->
+<A NAME="SETX"></A>
+<!-- AppleSegDescription="Set the x-co-ordinate of the turtle" -->
+<H2>SetX</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetX</b> <I>x</I></P>
+<P>Set the x-co-ordinate of the turtle to <I>x.</I> Draws a line if the pen is down.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Home</p>
+<p >SetX -100</p>
+<p >Position</p>
+<p ><font color=blue>[-100 0]</font></p>
+</font></table>
+<p>See also 
+<A HREF="#POSITION">Position</a>, 
+<A HREF="#FORWARD">Forward</a>,
+<A HREF="#BACK">Back</a>,
+<A HREF="#SETPOSITION">SetPosition</a>,
+<A HREF="#SETY">SetY</a>,
+<A HREF="#HOME">Home</a>,
+<A HREF="#CLEARSCREEN">ClearScreen</a>.
+</font></table>
+
+
+
+<!-- AppleSegStart="SetY" -->
+<A NAME="SETY"></A>
+<!-- AppleSegDescription="Set the y-co-ordinate of the turtle" -->
+<H2> SetY </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>SetY</b> <I>y</I></P>
+<P>Set the y-co-ordinate of the turtle to <I>y.</I> Draws a line if the pen is down.
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Home</p>
+<p >SetY -100</p>
+<p >Position</p>
+<p ><font color=blue>[0 -100]</font></p>
+</font></table>
+<p>See also 
+<A HREF="#POSITION">Position</a>, 
+<A HREF="#FORWARD">Forward</a>,
+<A HREF="#BACK">Back</a>,
+<A HREF="#SETPOSITION">SetPosition</a>,
+<A HREF="#SETX">SetX</a>,
+<A HREF="#HOME">Home</a>,
+<A HREF="#CLEARSCREEN">ClearScreen</a>.
+</font></table>
+
+	<!-- AppleSegStart="Shadow" -->
+	<A NAME="SHADOW"></A>
+	<!-- AppleSegDescription="Outputs the shadow state." -->
+	<H2> Shadow </H2>
+	<!-- AppleSegEnd -->
+	<table><tr><td width=30><td><font face="sans-serif">
+		<P>Outputs the shadow state as a list -  <I>x-offset</I> and <I>y-offset</I>, which specify the offset of the shadow in pixels, and <I>Radius</I> which gives the  
+		amount by which the shadow is blurred. The greater the radius, the more the blur. 
+		<p>Example:
+		<table><tr><td width=30><td><font face="sans-serif">
+			<p>SetShadow [20 -20 10]<br>
+			Shadow<br>
+			<font color=blue>[20 -20 10]</font><br>
+		</font>
+		</table><p>
+		<p>See also 
+		<A HREF="#SETSHADOW">SetShadow</a>.</p> 
+	</font></table>
+	
+<!-- AppleSegStart="Shown?" -->
+<A NAME="SHOWN?"></A>
+<A NAME="SHOWN"></A>
+<!-- AppleSegDescription="Determine if the turtle is visible" -->
+<H2>Shown? </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output <B>true</B> if the turtle is visible, otherwise <B>false</B>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >HideTurtle</p>
+<p >Shown?</p>
+<p ><font color=blue>false</font></p>
+</font></table>
+<p>See also 
+<A HREF="#SHOWTURTLE">ShowTurtle</a>, 
+<A HREF="#HIDETURTLE">HideTurtle</a>.
+</font></table>
+
+<!-- AppleSegStart="ShowTurtle" -->
+<A NAME="SHOWTURTLE"></A>
+<A NAME="ST"></A>
+<!-- AppleSegDescription="Makes the turtle visible if it is hidden." -->
+<H2>ShowTurtle ,ST</H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Show the turtle if it is hidden.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >ShowTurtle</p>
+<p >Shown?</p>
+<p ><font color=blue>true</font></p>
+</font></table>
+<p>See also 
+<A HREF="#SHOWN">Shown?</a>, 
+<A HREF="#HIDETURTLE">HideTurtle</a>.
+</font></table>
+
+<!-- AppleSegStart="StrokeCurrentPath" -->
+<A NAME="STROKECURRENTPATH"></A>
+<!-- AppleSegDescription="Stroke the current path." -->
+<H2> StrokeCurrentPath </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Stroke, i.e. draw a line along the current path using the current pen colour. The current path is the sequence of lines which have been generated
+ by movements of the turtle. A <A HREF="#PENUP">PenUp</a> command or a command which moves the turtle without drawing a line,
+such as <A HREF="#CLEAN">Clean</a> or <A HREF="#CLEARSCREEN">ClearScreen</a>, empties the path.
+<p>The main use of this is to outline some text, for example:
+<table><tr><td width=30>
+<td width=180><font face="sans-serif">
+<p>ClearScreen<br>
+SetPenColour 2<br>
+SetTypeSize 156<br>
+GraphicsType "S<br>
+SetPenWidth 8<br>
+SetPenColour 1<br>
+StrokeCurrentPath</p>
+</font>
+<td><img src="strokepath.tiff">
+</table><p>
+<p>See also <A HREF="#FILLPATH">FillPath </a>, <A HREF="#FILLCURRENTPATH">FillCurrentPath </a>, <A HREF="#STROKEPATH">StrokePath </a>, <A HREF="#CURRENTPATH">CurrentPath</a>,
+<A HREF="#SETTYPESIZE">SetTypeSize</a>, <A HREF="#PATHLENGTH">PathLength</a>,
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>.
+</font></table>
+
+<!-- AppleSegStart="StrokePath" -->
+<A NAME="STROKEPATH"></A>
+<!-- AppleSegDescription="Stroke a path." -->
+<H2> StrokePath </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>StrokePath</b> <I>path-command-list</I></P>
+<P>Stroke, i.e. draw a line along the path specified by <i>path-command-list</i>. This list consists of a number of sub-lists. 
+Each sub-list consists of a command and its parameters. The command may be <i>moveto</i>, <i>lineto</i>, <i>curveto</i>, or <i>close</i>.
+<p>The best way to create the list is to do some drawing, and then save the path into a list using <A HREF="#CurrentPath">CurrentPath</a>.
+<p>Example:
+<table><tr><td width=30>
+<td><font face="sans-serif">
+<p>StrokePath [[moveto 0 0][lineto 0 100][lineto 200 100]]</p>
+</font>
+</table><p>
+<p>See also <A HREF="#FILLPATH">FillPath </a>, <A HREF="#FILLCURRENTPATH">FillCurrentPath </a>,  <A HREF="#PATHLENGTH">PathLength</a>,
+<A HREF="#STROKECURRENTPATH">StrokeCurrentPath </a>, <A HREF="#CURRENTPATH">CurrentPath</a>, <A HREF="#PATHBOUNDS">PathBounds</a>.
+</font></table>
+
+<!-- AppleSegStart="TextBox" -->
+<A NAME="TEXTBOX"></A>
+<!-- AppleSegDescription="Output a box describing the size of the required text" -->
+<H2>TextBox </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>TextBox</b> <I>string</I></P>
+<P><b>TextBox</b> <I>list</I></P>
+<P>Output a list describing the size of the parameter if printed by GraphicsType. The list is of the form [x y w h],
+where x,y is the co-ordinate of the bottom-left corner, w is the box width, and h is the box height.</P>
+<p>The textbox is not a bounding box - the height of the box is the line-height of the text, and the width includes letter spacing
+on either side.</p>
+<p>For Example:
+<p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >SetTypeSize 72</p>
+<p >TextBox [The End]</p>
+<p ><font color=blue>[0 0 250.22265625 86]</font></p>
+</font></table>
+<p>See also 
+<A HREF="#SETTYPESIZE">SetTypeSize</a>,
+<A HREF="#GRAPHICSTYPE">GraphicsType</a>,
+<A HREF="#STROKEPATH">StrokePath</a>.
+</font></table>
+
+<!-- AppleSegStart="Towards" -->
+<A NAME="TOWARDS"></A>
+<!-- AppleSegDescription="Output required angle" -->
+<H2>Towards </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Towards</b> [<I>x y</I>]</P>
+<P>Output the angle which the turtle's heading must be set to
+to point towards position <I>x,y</I>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Home</p>
+<p >Towards [100 100]</p>
+<p ><font color=blue>45</font></p>
+</font></table>
+<p>See also 
+<A HREF="#HEADING">Heading</a>,
+<A HREF="#SETHEADING">SetHeading</a>,
+<A HREF="#POSITION">Position</a>.
+</font></table>
+
+	<!-- AppleSegStart="Wrap" -->
+	<A NAME="WRAP"></A>
+	<!-- AppleSegDescription="Output the wrap state" -->
+	<H2>Wrap</H2>
+	<!-- AppleSegEnd -->
+	<table><tr><td width=30><td><font face="sans-serif">
+		<P>Outputs the wrap state. If wrap is set to <font color=blue>true</font>, a movement of the turtle which causes it to
+		move outside the canvas causes it to come in the other side.</P>
+		<table><tr><td width=30><td><font face="sans-serif">
+			<p>Wrap</p>
+			<p><font color=blue>true</font></p>
+		</font></table>
+		<p>See also <A HREF="#SETWRAP">SetWrap</a>, 
+		<A HREF="#SETCANVASSIZE">SetCanvasSize</a>, 
+		<A HREF="#CANVASSIZE">CanvasSize</a>.
+	</font></table>
+	
+<!-- AppleSegStart="XPos" -->
+<A NAME="XPOS"></A>
+<!-- AppleSegDescription="Output the turtle's x-co-ordinate." -->
+<H2>XPos </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output the turtle's x-co-ordinate.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Home</p>
+<p >Left 90 Forward 100</p>
+<p >XPos</p>
+<p ><font color=blue>-100</font></p>
+</font></table>
+<p>See also 
+<A HREF="#POSITION">Position</a>, 
+<A HREF="#FORWARD">Forward</a>,
+<A HREF="#BACK">Back</a>,
+<A HREF="#SETPOSITION">SetPosition</a>,
+<A HREF="#SETX">SetX</a>,
+<A HREF="#HOME">Home</a>,
+<A HREF="#CLEARSCREEN">ClearScreen</a>.
+</font></table>
+
+<!-- AppleSegStart="YPos" -->
+<A NAME="YPOS"></A>
+<!-- AppleSegDescription="Output the turtle's y-co-ordinate." -->
+<H2> YPos </H2>
+<!-- AppleSegEnd -->
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Output the turtle's y-co-ordinate.
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Home</p>
+<p >Forward 100</p>
+<p >YPos</p>
+<p ><font color=blue>100</font></p>
+</font></table>
+<p>See also 
+<A HREF="#POSITION">Position</a>, 
+<A HREF="#FORWARD">Forward</a>,
+<A HREF="#BACK">Back</a>,
+<A HREF="#SETPOSITION">SetPosition</a>,
+<A HREF="#SETY">SetY</a>,
+<A HREF="#HOME">Home</a>,
+<A HREF="#CLEARSCREEN">ClearScreen</a>.
+</font></table>
+</font>
+</BODY>
+</HTML>

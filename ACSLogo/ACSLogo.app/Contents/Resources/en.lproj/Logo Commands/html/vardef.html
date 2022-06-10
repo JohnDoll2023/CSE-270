@@ -1,0 +1,222 @@
+<HTML>  
+<HEAD>
+  <TITLE>Variables, Definitions, and Properties</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<font face="Geneva,Helvetica,Arial">
+
+<!-- AppleSegStart="Define" -->
+<A NAME="DEFINE"></A>
+<!-- AppleSegDescription="Create a procedure" -->
+<h2> Define </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Define</b> <I>name </I>[ [<I>parameters</I>][<I>statements</I>]
+]</P>
+
+<P>Create procedure <I>name</I> with parameters <I>parameters</I>
+and statements <I>statements</I>. For example:</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Define &quot;box [ [size] [ repeat 4 [forward :size right 90]
+]
+</table>
+<p>This is retained for compatibility with other versions of Logo. It's better to use the procedure window
+to create procedures.
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Definep" -->
+<A NAME="DEFINEP"></A>
+<!-- AppleSegDescription="Tests whether a procedure is defined" -->
+<h2> Define?, Definep</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Define?&nbsp;<I> name</I></P>
+<P>Outputs <B>true </B>if <I>name&nbsp;</I> is a procedure. E.g.:</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Define? &quot;box</P>
+<p><font color=blue>true</font>
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Getprop" -->
+<A NAME="GETPROP"></A>
+<A NAME="GPROP"></A>
+<!-- AppleSegDescription="Retrieve a property for a name" -->
+<h2>GetProp, GProp</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b><b>GetProp</b></b> <I>name</I> <I>property</I></P>
+<P>Retrieve a property for a name which has been previously assigned with <A HREF="#PUTPROP">PutProp</a>. If there is no such property, the empty list is
+returned.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >PutProp "fred "address [5 Letsby Avenue]</p>
+<p >PutProp "fred "age 47</p>
+<p >GetProp "fred "address </p>
+<p ><font color=blue>[5 Letsby Avenue]</font></p>
+<p >GetProp "fred "age </p>
+<p ><font color=blue>47</font></p>
+<p >GetProp "fred "height </p>
+<p ><font color=blue>[ ]</font></p>
+<p>See also <A HREF="#PUTPROP">PutProp</a>, <A HREF="#PROPLIST">PropList</a>, 
+<A HREF="#REMPROP">RemProp</a>.
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Local" -->
+<A NAME="LOCAL"></A>
+<!-- AppleSegDescription="Define a local variable" -->
+<h2> Local </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Local</b> <I>name</I> <BR>
+(<b>Local</b> <I>name1...</I>)</P>
+<P>Declare a name as local to a procedure - effectively a local
+variable.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Local "thething</p>
+<p >Make "thething 5</p>
+<p >Make "thething :thething + 1</p>
+<p >:thething</p>
+<p ><font color=blue>6</font></p>
+</table>
+<p>See also <A HREF="#MAKE">Make</a>, 
+<A HREF="#THING">Thing</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="Make" -->
+<A NAME="MAKE"></A>
+<!-- AppleSegDescription="Set the value of a variable" -->
+<h2> Make </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b><b>Make</b></b> <I>name object</I></P>
+<P>Give variable <I>name</I> value <I>object. </I>Creates the
+variable if it doesn't exist.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Make "thething 5</p>
+<p >Make "thething :thething + 1</p>
+<p >:thething</p>
+<p ><font color=blue>6</font></p>
+<p>See also <A HREF="#LOCAL">Local</a>, 
+<A HREF="#THING">Thing</a>.
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Namep" -->
+<A NAME="NAMEP"></A>
+<A NAME="NAME?"></A>
+<A NAME="NAME"></A>
+<!-- AppleSegDescription="See if a variable exists" -->
+<h2>Name?</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Name?</b> <I>word</I></P>
+<P>Output <b>true</b> if <I>word</I> is the name of a variable, otherwise <b>false</b>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Name? "thething</p>
+<p ><font color=blue>false</font></p>
+<p >Make "thething 5</p>
+<p >Name? "thething</p>
+<p ><font color=blue>true</font></p>
+<p>See also <A HREF="#MAKE">Make</a>, 
+<A HREF="#THING">Thing</a>.
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Proplist" -->
+<A NAME="PROPLIST"></A>
+<A NAME="PLIST"></A>
+<!-- AppleSegDescription="Output the properties for a name" -->
+<h2>PropList, PList</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b><b>Proplist</b></b> <I>name</I></P>
+<P>Output a list of the properties and values associated with <i>name</i>. The list is an alternating list of properties and their values, and the order of the 
+properties in the list is undefined.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >PutProp "fred "address [5 Letsby Avenue]</p>
+<p >PutProp "fred "age 47</p>
+<p >PropList "fred </p>
+<p ><font color=blue>[ age 47 address [5 Letsby Avenue]]</font></p>
+<p>See also <A HREF="#GETPROP">GetProp</a>, <A HREF="#PUTPROP">PutProp</a>, 
+<A HREF="#REMPROP">RemProp</a>.
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Putprop" -->
+<A NAME="PUTPROP"></A>
+<!-- AppleSegDescription="Assign a property to a name" -->
+<h2>PutProp, PProp</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b><b>PutProp</b></b> <I>name</I> <I>property</I> <I>object</I></P>
+<P>Create property <i>property</i> for name <i>name</i> and give it a value of <I>object</I>. A number of different properties can be assigned to 
+<i>name</i>. If <i>name</i> already has property <i>property</i>, the old value is replaced with <i>object</i>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >PutProp "fred "address [5 Letsby Avenue]</p>
+<p >PutProp "fred "age 47</p>
+<p >GetProp "fred "address </p>
+<p ><font color=blue>[5 Letsby Avenue]</font></p>
+<p >GetProp "fred "age </p>
+<p ><font color=blue>47</font></p>
+<p>See also <A HREF="#GETPROP">GetProp</a>, <A HREF="#PROPLIST">PropList</a>, 
+<A HREF="#REMPROP">RemProp</a>.
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="Remprop" -->
+<A NAME="REMPROP"></A>
+<!-- AppleSegDescription="Remove a property" -->
+<h2>RemProp</h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b><b>RemProp</b></b> <I>name</I> <I>property</I></P>
+<P>Remove a property for a name which has previously been assigned with <A HREF="#PUTPROP">PutProp</a>.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >PutProp "fred "age 47</p>
+<p >GetProp "fred "age </p>
+<p ><font color=blue>47</font></p>
+<p >RemProp "fred "age </p>
+<p >GetProp "fred "age </p>
+<p ><font color=blue>[ ]</font></p>
+<p>See also <A HREF="#GETPROP">GetProp</a>, <A HREF="#PROPLIST">PropList</a>, 
+<A HREF="#PUTPROP">PutProp</a>.
+</table>
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="Text" -->
+<A NAME="TEXT"></A>
+<!-- AppleSegDescription="Output the description of a procedure" -->
+<h2> <b>Text</b> </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P>Text <I>name</I></P>
+<P>Output procedure <I>name </I>as a list of lists. See <A HREF="#DEFINE">Define</A>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+<!-- AppleSegStart="Thing" -->
+<A NAME="THING"></A>
+<!-- AppleSegDescription="Output the value of a variable" -->
+<h2> Thing </h2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Thing</b> <I>name</I></P>
+<P>Output the value of variable <I>name.</I> An alternative to using ':' to access the value of a variable.</P>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >Make "var 333</p>
+<p >thing "var</p>
+<p ><font color=blue>333</font></p>
+<p >:var</p>
+<p ><font color=blue>333</font></p>
+</table>
+<p>See also 
+<A HREF="#MAKE">Make</a>.
+</table>
+<!-- AppleSegEnd -->
+
+
+</font>
+</BODY>
+</HTML>

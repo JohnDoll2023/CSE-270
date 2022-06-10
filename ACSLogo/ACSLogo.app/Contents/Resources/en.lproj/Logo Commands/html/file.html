@@ -1,0 +1,451 @@
+<HTML>  
+<HEAD>
+  <TITLE>File Commands</TITLE>
+<meta http-equiv=Content-Type content="text/html; charset=macintosh">
+</HEAD>
+<body>
+<font face="Geneva,Helvetica,Arial">
+
+<!-- AppleSegStart="CD" -->
+<A NAME="CD"></A>
+<!-- AppleSegDescription="Change the current directory" -->
+<H2>CD</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>CD </b><i>path-name</i><BR>
+<P>Changes the current directory to path-name, which can be either a word or a list. It’s generally better to use a list so that characters
+ such as slashes in the name are not taken to be logo operators. A tilde (‘~’) can be used as shorthand for your home directory.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >CD "~</p>
+<p >Pwd</p>
+<p ><font color=blue>/Users/alan</font></p>
+ </table>
+<p ><i>path-name</i> can either be absolute (starting with a slash) or relative, in which case the directory is changed relative to the current directory.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >CD [/System]</p>
+<p >Pwd</p>
+<p ><font color=blue>/System</font></p>
+<p >CD [Library]</p>
+<p >Pwd</p>
+<p ><font color=blue>/System/Library</font></p>
+</table>
+<p >To go up a level, use a double-dot ‘..’.</p>
+<p>See also <A HREF="#PWD">Pwd</a>, <A HREF="#DIR">Dir</a>, <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENWRITE">OpenWrite</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="CLOSEREADFILE" -->
+<A NAME="CLOSEREADFILE"></A>
+<!-- AppleSegDescription="Close the file open for reading" -->
+<H2>CloseReadFile</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>CloseReadFile</b><BR>
+<P>Close the file that's been opened for reading with <A HREF="#OPENREAD">OpenRead</a>.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenRead [thing.txt]</p>
+<p >Make "var FReadList</p>
+<p >CloseReadFile</p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENTEXTREAD">OpenTextRead</a>,
+<A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADLIST">FReadList</a>,
+  <A HREF="#FREADWORD">FReadWord</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="CLOSEWRITEFILE" -->
+<A NAME="CLOSEWRITEFILE"></A>
+<!-- AppleSegDescription="Close the file open for writing" -->
+<H2>CloseWriteFile</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>CloseWriteFile</b><BR>
+<P>Close the file that's been opened for writing with <A HREF="#OPENAPPEND">OpenAppend</a> or 
+<A HREF="#OPENWRITE">OpenWrite</a>.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenWrite [thing.txt]</p>
+<p >FPrint [Bit at the start]</p>
+<p >FPrint [Bit in the middle]</p>
+<p >CloseWriteFile</p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENWRITE">OpenWrite</a>, <A HREF="#OPENTEXTWRITE">OpenTextWrite</a>,
+ <A HREF="#OPENAPPEND">OpenAppend</a>,  <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>,  <A HREF="#FPRINT">FPrint</a>,  
+ <A HREF="#FSHOW">FShow</a>, <A HREF="#FTYPE">FType</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="DIR" -->
+<A NAME="DIR"></A>
+<!-- AppleSegDescription="List the current directory" -->
+<H2>Dir</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Dir</b><BR>
+<P>List the contents of the current directory. In the resultant list, directories are signified by a trailing slash.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >CD [/System]</p>
+<p >Dir</p>
+<p ><font color=blue>.localized</font></p>
+<p ><font color=blue>Library/</font></p>
+</table>
+<p >Note that the view of the file system is the real view rather than the logical view seen in the Finder windows. Invisible files (starting with a ‘.’) 
+are listed.</p>
+<p>See also <A HREF="#PWD">Pwd</a>, <A HREF="#CD">CD</a>, <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENWRITE">OpenWrite</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="EOFP" -->
+<A NAME="EOFP"></A>
+<A NAME="EOF?"></A>
+<!-- AppleSegDescription="End of file open for reading" -->
+<H2>Eof?, EofP</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>Eof?</b><BR>
+<P>Returns true if the file open for reading has been read to the end.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenRead "myfile.txt</p>
+<p >Eof?</p>
+<p ><font color=blue>false</font></p>
+<p >FReadChars 10000</p>
+<p >Eof?</p>
+<p ><font color=blue>true</font></p>
+</table>
+<p>See also <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENTEXTREAD">OpenTextRead</a>, <A HREF="#FREADLIST">FReadList</a>, <A HREF="#FREADWORD">FReadWord</a>, 
+<A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="EXPORTEPS" -->
+<A NAME="EXPORTEPS"></A>
+<!-- AppleSegDescription="Export a EPS" -->
+<H2>ExportEPS</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>ExportEPS</b> <i>file-name</i><BR>
+<P>Export the contents of the graphics window as an EPS (Encapsulated Postscript) file to <i>file-name</i> in the current directory.The same as choosing <b>Export/EPS…</b> from the <b>File</b> menu.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >ExportEPS "thing.eps</p>
+</font>
+</table>
+<p>See also <A HREF="#EXPORTEPS">ExportEPS</a>, <A HREF="#EXPORTTIFF">ExportTIFF</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="EXPORTPDF" -->
+<A NAME="EXPORTPDF"></A>
+<!-- AppleSegDescription="Export a PDF" -->
+<H2>ExportPDF</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>ExportPDF</b> <i>file-name</i><BR>
+<P>Export the contents of the graphics window as a PDF (Adobe Acrobat) file to <i>file-name</i> in the current directory.The same as choosing <b>Export/PDF…</b> from the <b>File</b> menu.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >ExportPDF "thing.pdf</p>
+</font>
+</table>
+<p>See also <A HREF="#EXPORTEPS">ExportEPS</a>, <A HREF="#EXPORTTIFF">ExportTIFF</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="EXPORTTIFF" -->
+<A NAME="EXPORTTIFF"></A>
+<!-- AppleSegDescription="Export a TIFF" -->
+<H2>ExportTIFF</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>ExportTIFF</b> <i>file-name</i><BR>
+<P>Export the contents of the graphics window as a TIFF (bitmap) file to <i>file-name</i> in the current directory.The same as choosing <b>Export/Graphics…</b> from the <b>File</b> menu.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >ExportTIFF "thing.tif</p>
+</font>
+</table>
+<p>See also <A HREF="#EXPORTEPS">ExportEPS</a>, <A HREF="#EXPORTPDF">ExportPDF</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="FPRINT" -->
+<A NAME="FPRINT"></A>
+<!-- AppleSegDescription="Print to a file" -->
+<H2>FPrint</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FPrint</b> <i>object</i><BR>
+<P>(<b>FPrint</b> <i>object1</i>...)<BR>
+<P>Similar to <A HREF="display.html#PRINT">Print</a>, but writes out to a file rather than to the main command window. Prints out one or more objects to the 
+file currently opened for writing. An object may be a number, word, or list. If an object is a list, the outermost 
+brackets are not printed. Writes a new line afterwards.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenWrite [thing.txt]</p>
+<p >FPrint [Bit at the start]</p>
+</table>
+<p>See also <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>,  <A HREF="#OPENWRITE">OpenWrite</a>, <A HREF="#OPENTEXTWRITE">OpenTextWrite</a>, <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>,   
+ <A HREF="#FSHOW">FShow</a>, <A HREF="#FTYPE">FType</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="FREADCHAR" -->
+<A NAME="FREADCHAR"></A>
+<!-- AppleSegDescription="Read a character from a file" -->
+<H2>FReadChar</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FReadChar</b><BR>
+<P>Read a single character from the file currently open for reading and output it. Similar to <A HREF="wordlistcomm.html#READCHAR">ReadChar</a>
+which reads from the main command window.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenRead [thing.txt]</p>
+<p >FReadChar</p>
+<p ><font color=blue>B</font></p>
+</table>
+<p>See also <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENTEXTREAD">OpenTextRead</a>, <A HREF="#EOFP">EOF?</a>, <A HREF="#CLOSEREADFILE">CloseReadFile</a>,
+<A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADLIST">FReadList</a>, <A HREF="#FREADWORD">FReadWord</a>,   
+ <A HREF="wordlistcomm.html#READCHAR">ReadChar</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="FREADCHARS" -->
+<A NAME="FREADCHARS"></A>
+<!-- AppleSegDescription="Read characters from a file" -->
+<H2>FReadChars</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FReadChars</b> <i>count</i><BR>
+<P>Read <i>count</i> characters from the file currently open for reading and output them as a word.
+ Similar to <A HREF="wordlistcomm.html#READCHARS">ReadChars</a>
+which reads from the main command window.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenRead [thing.txt]</p>
+<p >FReadChars 10</p>
+<p ><font color=blue>Bit at the</font></p>
+</table>
+<p>See also <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENTEXTREAD">OpenTextRead</a>, <A HREF="#EOFP">EOF?</a>, <A HREF="#CLOSEREADFILE">CloseReadFile</a>,
+<A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADLIST">FReadList</a>, <A HREF="#FREADWORD">FReadWord</a>,   
+ <A HREF="wordlistcomm.html#READCHARS">ReadChars</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="FREADLIST" -->
+<A NAME="FREADLIST"></A>
+<!-- AppleSegDescription="Read a line from a file into a list" -->
+<H2>FReadList</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FReadList</b><BR>
+<P>Read a line of characters from the file currently open for reading and output them as a list.
+ Similar to <A HREF="wordlistcomm.html#READLIST">ReadList</a>
+which reads from the main command window.</p>
+<p>See also <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENTEXTREAD">OpenTextRead</a>, <A HREF="#EOFP">EOF?</a>, <A HREF="#CLOSEREADFILE">CloseReadFile</a>,
+<A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADWORD">FReadWord</a>,   
+ <A HREF="wordlistcomm.html#READLIST">ReadList</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="FREADWORD" -->
+<A NAME="FREADWORD"></A>
+<!-- AppleSegDescription="Read a line from a file into a word" -->
+<H2>FReadWord</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FReadWord</b><BR>
+<P>Read a line of characters from the file currently open for reading and output them as a word.
+ Similar to <A HREF="wordlistcomm.html#READWORD">ReadWord</a>
+which reads from the main command window.</p>
+<p>See also <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENTEXTREAD">OpenTextRead</a>, <A HREF="#EOFP">EOF?</a>,  <A HREF="#CLOSEREADFILE">CloseReadFile</a>,
+<A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADLIST">FReadList</a>,   
+ <A HREF="wordlistcomm.html#READWORD">ReadWord</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="FSHOW" -->
+<A NAME="FSHOW"></A>
+<!-- AppleSegDescription="Write to a file" -->
+<H2>FShow</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FShow</b> <i>object</i><BR>
+<P>(<b>FShow</b> <i>object1</i>...)<BR>
+<P>Similar to <A HREF="display.html#SHOW">Show</a>, but writes out to a file rather than to the main command window. 
+Writes out one or more objects to the 
+file currently opened for writing. An object may be a number, word, or list. If an object is a list, the outermost 
+brackets are written. Writes a new line afterwards.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenWrite [thing.txt]</p>
+<p >FShow [Bit at the start]</p>
+</table>
+<p>See also <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENWRITE">OpenWrite</a>, <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>, <A HREF="#OPENTEXTWRITE">OpenTextWrite</a>,
+<A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>,   
+ <A HREF="#FPRINT">FPrint</a>, <A HREF="#FTYPE">FType</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="FTYPE" -->
+<A NAME="FTYPE"></A>
+<!-- AppleSegDescription="Write to a file" -->
+<H2>FType</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>FType</b> <i>object</i><BR>
+<P>(<b>FType</b> <i>object1</i>...)<BR>
+<P>Similar to <A HREF="display.html#TYPE">Type</a>, but writes out to a file rather than to the main command window. 
+Writes out one or more objects to the 
+file currently opened for writing. An object may be a number, word, or list. If an object is a list, the outermost 
+brackets are not written. Does not write a new line afterwards.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenWrite [thing.txt]</p>
+<p >FType [Bit at the start]</p>
+</table>
+<p>See also <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENWRITE">OpenWrite</a>, <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>, <A HREF="#OPENTEXTWRITE">OpenTextWrite</a>,
+<A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>,   
+ <A HREF="#FPRINT">FPrint</a>,  <A HREF="#FSHOW">FShow</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="OPENAPPEND" -->
+<A NAME="OPENAPPEND"></A>
+<!-- AppleSegDescription="Open a file for appending to" -->
+<H2>OpenAppend</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>OpenAppend</b> <i>file-name</i><BR>
+<P>Open file <i>file-name</i> in the current directory for appending, i.e. written data will be added on the end. 
+<i>file-name</i> may be a word or a list. Only one file can be open for writing at a time. 
+After opening, the file can be written to using commands <A HREF="#FPRINT">FPrint</a>, <A HREF="#FSHOW">FShow</a>, 
+<A HREF="#FTYPE">FType</a>. The file should then be closed using <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenAppend [thing.txt]</p>
+<p >FPrint [Bit at the end]</p>
+<p >CloseWriteFile</p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENREAD">OpenRead</a>,
+ <A HREF="#OPENWRITE">OpenWrite</a>,  <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>, <A HREF="#OPENTEXTWRITE">OpenTextWrite</a>, <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>, <A HREF="#FPRINT">FPrint</a>,  
+ <A HREF="#FSHOW">FShow</a>, <A HREF="#FTYPE">FType</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="OPENREAD" -->
+<A NAME="OPENREAD"></A>
+<!-- AppleSegDescription="Open a file for reading" -->
+<H2>OpenRead</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>OpenRead</b> <i>file-name</i><BR>
+<P>Open file <i>file-name</i> in the current directory for reading. Only one file can be open for reading at a time. After opening, the file
+ can be read from using commands <A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADLIST">FReadList</a>,
+  <A HREF="#FREADWORD">FReadWord</a>. The file should then be closed using <A HREF="#CLOSEREADFILE">CloseReadFile</a>.</p>
+  <p>OpenRead doesn't interpret Unicode files correctly. If you need to read Unicode characters, use <A HREF="#OPENTEXTREAD">OpenTextRead</a> instead.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenRead [thing.txt]</p>
+<p >Make "var FReadList</p>
+<p >CloseReadFile</p>
+<p >:var</p>
+<p ><font color=blue>[Bit at the start]</font></p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>,
+ <A HREF="#OPENWRITE">OpenWrite</a>, <A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADLIST">FReadList</a>,
+  <A HREF="#FREADWORD">FReadWord</a>, <A HREF="#CLOSEREADFILE">CloseReadFile</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="OPENTEXTREAD" -->
+<A NAME="OPENTEXTREAD"></A>
+<!-- AppleSegDescription="Open a text file for reading" -->
+<H2>OpenTextRead</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>OpenTextRead</b> <i>file-name</i><BR>
+<P>Open file <i>file-name</i> in the current directory for reading. Only one file can be open for reading at a time. After opening, the file
+ can be read from using commands <A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADLIST">FReadList</a>,
+  <A HREF="#FREADWORD">FReadWord</a>. The file should then be closed using <A HREF="#CLOSEREADFILE">CloseReadFile</a>.</p>
+  <p>OpenTextRead is able to interpret Unicode files correctly. If you need to read them as a sequence of bytes, use <A HREF="#OPENREAD">OpenRead</a> instead.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenTextRead [thing.txt]</p>
+<p >Make "var FReadList</p>
+<p >CloseReadFile</p>
+<p >:var</p>
+<p ><font color=blue>[Bit at the start]</font></p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>,
+ <A HREF="#OPENREAD">OpenRead</a>,
+ <A HREF="#OPENWRITE">OpenWrite</a>, <A HREF="#FREADCHAR">FReadChar</a>, <A HREF="#FREADCHARS">FReadChars</a>, <A HREF="#FREADLIST">FReadList</a>,
+  <A HREF="#FREADWORD">FReadWord</a>, <A HREF="#CLOSEREADFILE">CloseReadFile</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="OPENTEXTAPPEND" -->
+<A NAME="OPENTEXTAPPEND"></A>
+<!-- AppleSegDescription="Open a file for appending unicode characters to" -->
+<H2>OpenTextAppend</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>OpenTextAppend</b> <i>file-name</i><BR>
+<P>Open file <i>file-name</i> in the current directory for appending, i.e. written data will be added on the end. 
+<i>file-name</i> may be a word or a list. Only one file can be open for writing at a time. 
+After opening, the file can be written to using commands <A HREF="#FPRINT">FPrint</a>, <A HREF="#FSHOW">FShow</a>, 
+<A HREF="#FTYPE">FType</a>. The file should then be closed using <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>.
+The data written will be in Unicode format.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenTextAppend [thing.txt]</p>
+<p >FPrint [Bit at the end]</p>
+<p >CloseWriteFile</p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENREAD">OpenRead</a>,
+ <A HREF="#OPENWRITE">OpenWrite</a>,  <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENTEXTWRITE">OpenTextWrite</a>, <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>, <A HREF="#FPRINT">FPrint</a>,  
+ <A HREF="#FSHOW">FShow</a>, <A HREF="#FTYPE">FType</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="OPENTEXTWRITE" -->
+<A NAME="OPENTEXTWRITE"></A>
+<!-- AppleSegDescription="Open a Unicode file for writing to" -->
+<H2>OpenTextWrite</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>OpenTextWrite</b> <i>file-name</i><BR>
+<P>Open file <i>file-name</i> in the current directory for writing to. Previous contents of the file are overwritten. 
+<i>file-name</i> may be a word or a list. Only one file can be open for writing at a time. 
+After opening, the file can be written to using commands <A HREF="#FPRINT">FPrint</a>, <A HREF="#FSHOW">FShow</a>, 
+<A HREF="#FTYPE">FType</a>. The file should then be closed using <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>.</p>
+<p>OpenTextWrite writes characters in Unicode format - if you want to write the data as ASCII, use <A HREF="#OPENWRITE">OpenWrite</a>.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenWrite [thing.txt]</p>
+<p >FPrint [Bit at the start]</p>
+<p >FPrint [Bit in the middle]</p>
+<p >CloseWriteFile</p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENWRITE">OpenWrite</a>,
+ <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>, <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>, <A HREF="#FPRINT">FPrint</a>,  
+ <A HREF="#FSHOW">FShow</a>, <A HREF="#FTYPE">FType</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="OPENWRITE" -->
+<A NAME="OPENWRITE"></A>
+<!-- AppleSegDescription="Open a file for writing to" -->
+<H2>OpenWrite</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>OpenWrite</b> <i>file-name</i><BR>
+<P>Open file <i>file-name</i> in the current directory for writing to. Previous contents of the file are overwritten. 
+<i>file-name</i> may be a word or a list. Only one file can be open for writing at a time. 
+After opening, the file can be written to using commands <A HREF="#FPRINT">FPrint</a>, <A HREF="#FSHOW">FShow</a>, 
+<A HREF="#FTYPE">FType</a>. The file should then be closed using <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >OpenWrite [thing.txt]</p>
+<p >FPrint [Bit at the start]</p>
+<p >FPrint [Bit in the middle]</p>
+<p >CloseWriteFile</p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#PWD">Pwd</a>, <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENTEXTWRITE">OpenTextWrite</a>,
+ <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENTEXTAPPEND">OpenTextAppend</a>, <A HREF="#CLOSEWRITEFILE">CloseWriteFile</a>, <A HREF="#FPRINT">FPrint</a>,  
+ <A HREF="#FSHOW">FShow</a>, <A HREF="#FTYPE">FType</a>.</p>
+</table>
+<!-- AppleSegEnd -->
+
+<!-- AppleSegStart="PWD" -->
+<A NAME="PWD"></A>
+<!-- AppleSegDescription="Print the current directory" -->
+<H2>PWD</H2>
+<table><tr><td width=30><td><font face="sans-serif">
+<P><b>PWD </b><BR>
+<P>Print out the name of the current directory.</p>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >CD "~</p>
+<p >Pwd</p>
+<p ><font color=blue>/Users/alan</font></p>
+ </table>
+<table><tr><td width=30><td><font face="sans-serif">
+<p >CD [/System]</p>
+<p >Pwd</p>
+<p ><font color=blue>/System</font></p>
+<p >CD [Library]</p>
+<p >Pwd</p>
+<p ><font color=blue>/System/Library</font></p>
+</table>
+<p>See also <A HREF="#CD">CD</a>, <A HREF="#DIR">Dir</a>, <A HREF="#OPENAPPEND">OpenAppend</a>, <A HREF="#OPENREAD">OpenRead</a>, <A HREF="#OPENWRITE">OpenWrite</a>.</P>
+</table>
+<!-- AppleSegEnd -->
+
+
+</font>
+</BODY>
+</HTML>
